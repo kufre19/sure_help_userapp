@@ -1,0 +1,20 @@
+HTTrack3.49-2+libhtsjava.so.2 launched on Sun, 16 Apr 2023 10:34:07 at https://preview.colorlib.com/theme/charity2/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/*
+(webhttrack -q -%i -w https://preview.colorlib.com/theme/charity2/ -O "/home/emmanuel/desktop/projects/cloned_websites/sure help" -n -%P -N0 -s2 -p7 -D -a -K0 -c4 -%k -A25000 -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -%s -%u )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+10:34:57	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://preview.colorlib.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+10:35:11	Error: 	"Bad Request" (400) at link https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z= (from https://preview.colorlib.com/theme/charity2/)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.eot (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.eot? (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.woff2 (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.woff (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.ttf (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/fonts/glyphicons-halflings-regular.svg (from https://preview.colorlib.com/theme/charity2/css/bootstrap.min.css)
+10:35:11	Error: 	"Not Found" (404) at link https://preview.colorlib.com/theme/charity2/css/owl.video.play.png (from https://preview.colorlib.com/theme/charity2/css/owl.carousel.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 4 seconds : 60 links scanned, 51 files written (2645305 bytes overall) [1975710 bytes received at 30870 bytes/sec], 1298466 bytes transferred using HTTP compression in 30 files, ratio 41%, 10.7 requests per connection
+(8 errors, 1 warnings, 0 messages)
