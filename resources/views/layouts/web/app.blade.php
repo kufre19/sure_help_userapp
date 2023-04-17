@@ -128,7 +128,7 @@
     @yield('main-content')
 
 
-  
+
 
 
     {{-- <div id="blog" class="section">
