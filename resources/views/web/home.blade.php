@@ -43,7 +43,7 @@
 
             <div class="row">
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="number">
                         <i class="fa fa-smile-o"></i>
                         <h3>47k</h3>
@@ -52,7 +52,7 @@
                 </div>
 
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="number">
                         <i class="fa fa-heartbeat"></i>
                         <h3>154K</h3>
@@ -61,19 +61,13 @@
                 </div>
 
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="number">
-                        <i class="fa fa-money"></i>
-                        <h3>785K</h3>
-                        <span>Donated</span>
-                    </div>
-                </div>
+               
 
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="number">
                         <i class="fa fa-handshake-o"></i>
-                        <h3>357</h3>
+                        <h3>50</h3>
                         <span>Partner</span>
                     </div>
                 </div>
