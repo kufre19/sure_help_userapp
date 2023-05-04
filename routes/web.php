@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* web routes */
+
 Route::get('/', [App\Http\Controllers\WebController::class,"home"]);
+// Route::get('about', [App\Http\Controllers\WebController::class,"about"]);
+

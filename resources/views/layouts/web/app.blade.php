@@ -31,7 +31,7 @@
                 <div class="navbar-header">
 
                     <div class="navbar-brand">
-                        <a class="logo" href="index-2.html"><img src="{{asset('surehelp_logo.png')}}" alt="logo"> Sure Help Executive Service</a>
+                        <a class="logo" href="{{url("/")}}"><img src="{{asset('surehelp_logo.png')}}" alt="logo"> Sure Help Executive Service</a>
                     </div>
 
 
@@ -275,7 +275,6 @@
     <script src="{{asset('custom/assets/js/jquery.stellar.min.js')}}"></script>
     <script src="{{asset('custom/assets/js/main.js')}}"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -286,10 +285,7 @@
 
         gtag('config', 'UA-23581568-13');
     </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v2b4487d741ca48dcbadcaf954e159fc61680799950996"
-        integrity="sha512-D/jdE0CypeVxFadTejKGTzmwyV10c1pxZk/AqjJuZbaJwGMyNHY3q/mTPWqMUnFACfCTunhZUVcd4cV78dK1pQ=="
-        data-cf-beacon='{"rayId":"7b8b6e4b6af176db","version":"2023.3.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}'
-        crossorigin="anonymous"></script>
+  
 </body>
 
 </html>
