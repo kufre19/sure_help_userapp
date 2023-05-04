@@ -204,7 +204,7 @@
                 <div class="col-md-4">
                     <div class="footer">
                         <div class="footer-logo">
-                            <a class="logo" href="#"><img src="img/logo.png" alt=""></a>
+                            <a class="logo" href="#"><img src="{{asset('surehelp_logo.png')}}" alt=""></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>

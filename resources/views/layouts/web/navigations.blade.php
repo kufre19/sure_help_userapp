@@ -4,7 +4,7 @@
     
     <li><a href="#">Store</a></li>
     
-    <li><a href="#">Contact</a></li>
+    <li><a href="{{url("contact")}}">Contact</a></li>
     <li><a href="#">Login/SignUp</a></li>
 
 </ul>
