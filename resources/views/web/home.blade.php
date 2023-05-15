@@ -85,7 +85,7 @@
 
     <div id="cta" class="section">
 
-        <div class="section-bg" style="background-image: url(img/background-1.jpg);" data-stellar-background-ratio="0.5">
+        <div class="section-bg" style="background-image: url(custom/assets/img/background-1.jpg);" data-stellar-background-ratio="0.5">
         </div>
 
 
@@ -114,7 +114,7 @@
 
     <div id="testimonial" class="section">
 
-        <div class="section-bg" style="background-image: url(img/background-2.jpg);" data-stellar-background-ratio="0.5">
+        <div class="section-bg" style="background-image: url(custom/assets/img/background-2.jpg);" data-stellar-background-ratio="0.5">
         </div>
 
 

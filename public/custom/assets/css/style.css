@@ -118,6 +118,10 @@ blockquote:after {
 	button
 \*----------------------------*/
 
+.pd-2 {
+  margin-top: 5px;
+}
+
 .primary-button {
   position: relative;
   display: inline-block;

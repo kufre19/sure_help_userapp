@@ -11,14 +11,14 @@
 
     <link href="{{asset('custom/assets/fonts.googleapis.com/csse965.css?family=Roboto:300,400%7CSource+Sans+Pro:700')}}" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/bootstrap.min.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/bootstrap.min.css')}}" >
 
-    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/owl.carousel.css')}}" />
-    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/owl.theme.default.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/owl.carousel.css')}}" >
+    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/owl.theme.default.css')}}" >
 
     <link rel="stylesheet" href="{{asset('custom/assets/css/font-awesome.min.css')}}">
 
-    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/style.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/style.css')}}">
 
 </head>
 

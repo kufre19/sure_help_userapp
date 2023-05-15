@@ -19,4 +19,13 @@ Route::get('/', [App\Http\Controllers\WebController::class,"home"]);
 Route::get('about', [App\Http\Controllers\WebController::class,"about"]);
 Route::get('contact', [App\Http\Controllers\WebController::class,"contact"]);
 
+// store route
+
+Route::get("store",[\App\Http\Controllers\FreeStore::class,"index"]);
+
+
+Route::any('test-page', function () {
+    return view("store.store-index");
+});
+
 
