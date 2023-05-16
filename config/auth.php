@@ -40,6 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'userMainApp' => [
+            'driver' => 'session',
+            'provider' => 'users_main_app',
+        ],
+        'userSponsor' => [
+            'driver' => 'session',
+            'provider' => 'users_sponsors',
+        ],
     ],
 
     /*
@@ -64,6 +73,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'users_main_app' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\UsersMainApp::class,
+            'table'=> "users_main_app"
+        ],
+        'users_sponsors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\UsersSponsorApp::class,
+            'table'=> "users_sponsors_app",
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',

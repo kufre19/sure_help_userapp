@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +21,25 @@ Route::get('about', [App\Http\Controllers\WebController::class,"about"]);
 Route::get('contact', [App\Http\Controllers\WebController::class,"contact"]);
 
 // store route
-
 Route::get("store",[\App\Http\Controllers\FreeStore::class,"index"]);
 
 
+Route::get("login",[]);
+Route::post("login",[\App\Http\Controllers\UserController::class,"login"]);
+Route::post("register",[\App\Http\Controllers\UserController::class,"register"]);
+Route::get("dashboard",function(){
+dd(Auth::guard("userMainApp")->user());
+});
+
+
+
+Route::group(["middleware"=>"auth:userMainApp"],function()
+{
+
+});
+
 Route::any('test-page', function () {
-    return view("store.store-index");
+    return view("user.register");
 });
 
 
