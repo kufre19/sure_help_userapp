@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <!-- MDB -->
-    <link rel="stylesheet" href="{{ asset('custom/mdb/css/mdb.min.css') }}" />
+    {{-- MDB --}}
+    @include('layouts.mdb-css-inclusion')
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('custom/store/css/style.css') }}" />
 </head>
@@ -127,8 +127,9 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <!-- MDB -->
-    <script type="text/javascript" src="{{ asset('custom/mdb/js/mdb.min.js') }}"></script>
+    {{-- MDB --}}
+    @include('layouts.mdb-js-inclusion')
+    
     <!-- Custom scripts -->
     <script type="text/javascript" src="{{ asset('custom/store/js/script.js') }}"></script>
 </body>

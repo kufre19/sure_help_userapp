@@ -24,9 +24,11 @@ Route::get('contact', [App\Http\Controllers\WebController::class,"contact"]);
 Route::get("store",[\App\Http\Controllers\FreeStore::class,"index"]);
 
 
-Route::get("login",[]);
+Route::get("login",[\App\Http\Controllers\UserController::class,"loginPage"]);
+Route::get("register",[\App\Http\Controllers\UserController::class,"registerPage"]);
 Route::post("login",[\App\Http\Controllers\UserController::class,"login"]);
 Route::post("register",[\App\Http\Controllers\UserController::class,"register"]);
+
 Route::get("dashboard",function(){
 dd(Auth::guard("userMainApp")->user());
 });

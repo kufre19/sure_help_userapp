@@ -1,120 +1,97 @@
-<!-- Pills navs -->
-<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-    <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-            aria-controls="pills-login" aria-selected="true">Login</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
-            aria-controls="pills-register" aria-selected="false">Register</a>
-    </li>
-</ul>
-<!-- Pills navs -->
-
-<!-- Pills content -->
-<div class="tab-content">
-    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form>
-            <div class="text-center mb-3">
-                <p>Sign in with:</p>
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-google"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-twitter"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-github"></i>
-                </button>
-            </div>
-
-            <p class="text-center">or:</p>
-
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <input type="email" id="loginName" class="form-control" />
-                <label class="form-label" for="loginName">Email or username</label>
-            </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <input type="password" id="loginPassword" class="form-control" />
-                <label class="form-label" for="loginPassword">Password</label>
-            </div>
-
-            <!-- 2 column grid layout -->
-            <div class="row mb-4">
-                <div class="col-md-6 d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check mb-3 mb-md-0">
-                        <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-                        <label class="form-check-label" for="loginCheck"> Remember me </label>
-                    </div>
+@extends('layouts.user.login-register')
+@section('main-content')
+    <section class="vh-100 mt-5">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="{{asset('custom/login_reg/img/register-img.svg')}}"
+                        class="img-fluid" alt="Sample image">
                 </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form action="{{url('register')}}" method="POST">
+                        @csrf
 
-                <div class="col-md-6 d-flex justify-content-center">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
+                         <!-- name input -->
+                         <div class="form-outline mb-4">
+                            <input type="text" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter Your Full Name" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+                
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                          <!-- birthday input -->
+                          <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+                         <!-- ,phone  input -->
+                         <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                          <!-- ,zipcode  input -->
+                          <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                         <!-- ,country  input -->
+                         <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                         <!-- gender input -->
+                         <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                placeholder="Enter password" />
+                            <label class="form-label" for="form3Example4">Password</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                placeholder="Enter password" />
+                            <label class="form-label" for="form3Example4">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Checkbox -->
+                            
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="button" class="btn  btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#25C702">Register</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0"> have an account already? <a href="#!"
+                                    class="link-danger">Login</a></p>
+                        </div>
+
+                    </form>
                 </div>
             </div>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-            <!-- Register buttons -->
-            <div class="text-center">
-                <p>Not a member? <a href="#!">Register</a></p>
-            </div>
-        </form>
-    </div>
-    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-        <form action="{{url("register")}}" method="POST">
-            @csrf
-           
-
-            <!-- Name input -->
-            <div class="form-outline mb-4">
-                <input type="text" name="name" id="registerName" class="form-control" />
-                <label class="form-label" for="registerName">Name</label>
-            </div>
-
-          
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <input type="email" name="email" id="registerEmail" class="form-control" />
-                <label class="form-label" for="registerEmail">Email</label>
-            </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <input type="password" name="password" id="registerPassword" class="form-control" />
-                <label class="form-label" for="registerPassword">Password</label>
-            </div>
-
-            <!-- Repeat Password input -->
-            {{-- <div class="form-outline mb-4">
-                <input type="password" id="registerRepeatPassword" class="form-control" />
-                <label class="form-label" for="registerRepeatPassword">Repeat password</label>
-            </div> --}}
-
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
-                    aria-describedby="registerCheckHelpText" />
-                <label class="form-check-label" for="registerCheck">
-                    I have read and agree to the terms
-                </label>
-            </div>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
-        </form>
-    </div>
-</div>
-<!-- Pills content -->
+        </div>
+        
+    </section>
+    <!-- End your project here-->
+@endsection
