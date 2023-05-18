@@ -29,15 +29,15 @@
                             <input type="date" id="form3Example3" class="form-control form-control-lg" placeholder="" />
                             <label class="form-label" for="form3Example3">Birthday</label>
                         </div>
-                        {{-- <!-- ,phone  input -->
-                        <div class="form-outline mb-4">
+                        <!-- ,phone  input -->
+                        <div class="form-group mb-4">
                             <select name="gener" id="gender_select"
                                 class="form-control  browser-default custom-select">
-                                <option value="none" selected>Select Gender</option>
+                                <option value="none">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
-                        </div> --}}
+                        </div>
 
                         <!-- ,zipcode  input -->
                         <div class="form-outline mb-4">
@@ -47,35 +47,34 @@
                         </div>
 
                         <!-- ,country  input -->
-                        <div class="form-outline mb-4">
-                            <select id="countrySelect" name="country" class=" ">
-                                <option value="">Select a country</option>
+                        <div class="form-group mb-4">
+                            <select id="countrySelect" name="country" class="form-control form-control-lg">
+                                <option value="">Select a Country</option>
                             </select>
-
                             <label class="form-label" for="countrySelect"></label>
                         </div>
 
                         <!-- gender input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="form3Example3" class="form-control form-control-lg"
-                                placeholder="Enter a valid email address" />
-                            <label class="form-label" for="form3Example3">Email address</label>
+                            <input type="email" name="address" id="address_id" class="form-control form-control-lg"
+                                placeholder="Enter your address" />
+                            <label class="form-label" for="address_id">Your address</label>
                         </div>
 
 
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg"
+                            <input type="password" name="password" id="pass" class="form-control form-control-lg"
                                 placeholder="Enter password" />
-                            <label class="form-label" for="form3Example4">Password</label>
+                            <label class="form-label" for="pass">Enter Password</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg"
-                                placeholder="Enter password" />
-                            <label class="form-label" for="form3Example4">Password</label>
+                            <input type="password" name="confirm_password" id="pass_1" class="form-control form-control-lg"
+                                placeholder="Confirm password" />
+                            <label class="form-label" for="pass_1">Confirm Password</label>
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
