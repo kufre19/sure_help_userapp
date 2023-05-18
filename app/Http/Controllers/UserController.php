@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return view("user.register");
     }
-    
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -40,22 +40,38 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-       
-        
-    
-        // dd("ok");
-        // Create a new user
-        $user = UsersMainApp::create([
-            'fullname' => $request['name'],
-            'email' => $request['email'],
-            "uuid"=>bin2hex(random_bytes(3)),
-            'password' => Hash::make($request['password']),
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users_main_app',
+            'birthday' => 'required|date',
+            'gender' => 'required',
+            'phone' => 'required',
+            'zipcode' => 'required',
+            'country' => 'required',
+            'address' => 'required',
+            'password' => 'required|min:6|confirmed',
         ]);
-    
+
+        // Create a new user instance
+        $user = UsersMainApp::create([
+            'fullname' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'birthday' => $validatedData['birthday'],
+            'gender' => $validatedData['gender'],
+            'phone' => $validatedData['phone'],
+            'zip_code' => $validatedData['zipcode'],
+            'country' => $validatedData['country'],
+            'address' => $validatedData['address'],
+            'uuid' => bin2hex(random_bytes(3)),
+            'password' => Hash::make($validatedData['password']),
+        ]);
+
         if ($user) {
             // Automatically login the registered user
-            Auth::guard("userMainApp")->login($user);
-    
+            Auth::guard('userMainApp')->login($user);
+
+            // Redirect the user to the desired page after successful registration
             return redirect()->intended('/dashboard');
         } else {
             // Failed to create a new user
@@ -64,6 +80,4 @@ class UserController extends Controller
             ]);
         }
     }
-    
-
 }
