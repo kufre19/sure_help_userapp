@@ -47,7 +47,7 @@
                         </div>
 
                         <!-- ,country  input -->
-                        <div class="form-group mb-4">
+                        <div class="form-group mb-2">
                             <select id="countrySelect" name="country" class="form-control form-control-lg">
                                 <option value="">Select a Country</option>
                             </select>
@@ -85,7 +85,7 @@
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="button" class="btn  btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#25C702">Register</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0"> have an account already? <a href="#!"
+                            <p class="small fw-bold mt-2 pt-1 mb-0"> have an account already? <a href="{{url('login')}}"
                                     class="link-danger">Login</a></p>
                         </div>
 
