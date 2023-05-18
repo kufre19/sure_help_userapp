@@ -47,6 +47,7 @@
 
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
+  @yield('js-script')
 </body>
 
 </html>

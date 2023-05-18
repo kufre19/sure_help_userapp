@@ -26,6 +26,13 @@ class UsersMainApp extends Authenticatable
         'uuid',
         'fullname',
         'email',
+        "birthday",
+        "gender",
+        "zip_code",
+        "address",
+        "address",
+        "country",
+        "phone",
         'password',
     ];
 
