@@ -16,32 +16,27 @@ use Illuminate\Support\Facades\Route;
 
 /* web routes */
 
-Route::get('/', [App\Http\Controllers\WebController::class,"home"]);
-Route::get('about', [App\Http\Controllers\WebController::class,"about"]);
-Route::get('contact', [App\Http\Controllers\WebController::class,"contact"]);
+Route::get('/', [App\Http\Controllers\WebController::class, "home"]);
+Route::get('about', [App\Http\Controllers\WebController::class, "about"]);
+Route::get('contact', [App\Http\Controllers\WebController::class, "contact"]);
 
 // store route
-Route::get("store",[\App\Http\Controllers\FreeStore::class,"index"]);
+Route::get("store", [\App\Http\Controllers\FreeStore::class, "index"]);
 
 
-Route::get("login",[\App\Http\Controllers\UserController::class,"loginPage"]);
-Route::get("register",[\App\Http\Controllers\UserController::class,"registerPage"]);
-Route::post("login",[\App\Http\Controllers\UserController::class,"login"]);
-Route::post("register",[\App\Http\Controllers\UserController::class,"register"]);
-
-Route::get("dashboard",function(){
-dd(Auth::guard("userMainApp")->user());
-});
+Route::get("login", [\App\Http\Controllers\UserController::class, "loginPage"]);
+Route::get("register", [\App\Http\Controllers\UserController::class, "registerPage"]);
+Route::post("login", [\App\Http\Controllers\UserController::class, "login"]);
+Route::post("register", [\App\Http\Controllers\UserController::class, "register"]);
 
 
 
-Route::group(["middleware"=>"auth:userMainApp"],function()
-{
 
+
+Route::group(["middleware" => "auth:userMainApp"], function () {
+    Route::get("dashboard", [App\Http\Controllers\DashboardController::class,"home"]);
 });
 
 Route::any('test-page', function () {
     return view("user.dashboard.index");
 });
-
-
