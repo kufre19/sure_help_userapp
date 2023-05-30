@@ -1,21 +1,22 @@
- <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
-        <script src="{{ asset('custom/userdashboard/assets/plugins/jquery/dist/jquery.min.js') }}"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="{{ asset('custom/userdashboard/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/app-style-switcher.js') }}"></script>
-        <!--Wave Effects -->
-        <script src="{{ asset('custom/userdashboard/js/waves.js') }}"></script>
-        <!--Menu sidebar -->
-        <script src="{{ asset('custom/userdashboard/js/sidebarmenu.js') }}"></script>
-        <!-- ============================================================== -->
-        <!-- This page plugins -->
-        <!-- ============================================================== -->
+    <!-- jQuery Js -->
+    <script src="{{ asset('custom/userdashboard/js/jquery-1.10.2.js') }}"></script>
 
-        <!--c3 JavaScript -->
-        <script src="{{ asset('custom/userdashboard/assets/plugins/d3/d3.min.js') }}"></script>
-        <script src="{{ asset('custom/userdashboard/assets/plugins/c3-master/c3.min.js') }}"></script>
-        <!--Custom JavaScript -->
-        <script src="{{ asset('custom/userdashboard/js/pages/dashboards/dashboard1.js') }}"></script>
-        <script src="{{ asset('custom/userdashboard/js/custom.js') }}"></script>
+    <!-- Bootstrap Js -->
+    <script src="{{ asset('custom/userdashboard/js/bootstrap.min.js') }}"></script>
+
+    <script src="{{ asset('custom/userdashboard/materialize/js/materialize.min.js') }}"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="{{ asset('custom/userdashboard/js/jquery.metisMenu.js') }}"></script>
+    <!-- Morris Chart Js -->
+    <script src="{{ asset('custom/userdashboard/js/morris/raphael-2.1.0.min.js') }}"></script>
+    <script src="{{ asset('custom/userdashboard/js/morris/morris.js') }}"></script>
+
+
+    <script src="{{ asset('custom/userdashboard/js/easypiechart.js') }}"></script>
+    <script src="{{ asset('custom/userdashboard/js/easypiechart-data.js') }}"></script>
+
+    <script src="{{ asset('custom/userdashboard/js/Lightweight-Chart/jquery.chart.js') }}"></script>
+
+    <!-- Custom Js -->
+    <script src="{{ asset('custom/userdashboard/js/custom-scripts.js') }}"></script>

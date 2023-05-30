@@ -1,15 +1,14 @@
-  <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16"
-  href="{{ asset('custom/userdashboard/assets/images/favicon.png') }}" />
-<!-- chartist CSS -->
-<link href="{{ asset('custom/userdashboard/assets/plugins/chartist-js/dist/chartist.min.css') }}"
-  rel="stylesheet" />
-<link href="{{ asset('custom/userdashboard/assets/plugins/chartist-js/dist/chartist-init.css') }}"
-  rel="stylesheet" />
-<link
-  href="{{ asset('custom/userdashboard/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}"
-  rel="stylesheet" />
-<!--This page css - Morris CSS -->
-<link href="{{ asset('custom/userdashboard/assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet" />
-<!-- Custom CSS -->
-<link href="{{ asset('custom/userdashboard/css/style.min.css') }}" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('custom/userdashboard/materialize/css/materialize.min.css') }}"
+        media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="{{ asset('custom/userdashboard/css/bootstrap.css') }}" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="{{ asset('custom/userdashboard/css/font-awesome.css') }}" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="{{ asset('custom/userdashboard/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="{{ asset('custom/userdashboard/css/custom-styles.css') }}" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{ asset('custom/userdashboard/js/Lightweight-Chart/cssCharts.css') }}">

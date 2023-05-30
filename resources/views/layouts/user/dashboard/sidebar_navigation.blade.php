@@ -1,56 +1,67 @@
-<aside class="left-sidebar" data-sidebarbg="skin6">
-    <!-- Sidebar scroll-->
-    <div class="scroll-sidebar">
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-                <!-- User Profile-->
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html"
-                        aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                            class="hide-menu">Dashboard</span></a>
-                </li>
-                
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html"
-                        aria-expanded="false"><i class="mdi me-2 mdi-emoticon"></i><span
-                            class="hide-menu">Request</span></a>
-                </li>
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html"
-                        aria-expanded="false"><i class="mdi me-2 mdi-emoticon"></i><span
-                            class="hide-menu">Free Store</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html"
-                        aria-expanded="false">
-                        <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
-                </li>
-                
-                
-            </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
+            <li>
+                <a class="active-menu waves-effect waves-dark" href="index.html"><i
+                        class="fa fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> UI
+                    Elements</a>
+            </li>
+            <li>
+                <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>
+                    Charts</a>
+            </li>
+            <li>
+                <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Tabs &
+                    Panels</a>
+            </li>
+
+            <li>
+                <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Responsive
+                    Tables</a>
+            </li>
+            <li>
+                <a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
+            </li>
+
+
+            <li>
+                <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Multi-Level
+                    Dropdown<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Second Level Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">Third Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Link</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty
+                    Page</a>
+            </li>
+        </ul>
+
     </div>
-    <!-- End Sidebar scroll-->
-    {{-- <div class="sidebar-footer">
-        <div class="row">
-            <div class="col-4 link-wrap">
-                <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Settings"><i class="mdi mdi-settings"></i></a>
-            </div>
-            <div class="col-4 link-wrap">
-                <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Email"><i class="mdi mdi-gmail"></i></a>
-            </div>
-            <div class="col-4 link-wrap">
-                <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title=""
-                    data-original-title="Logout"><i class="mdi mdi-power"></i></a>
-            </div>
-        </div>
-    </div> --}}
-</aside>
+
+</nav>
