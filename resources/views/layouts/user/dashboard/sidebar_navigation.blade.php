@@ -3,7 +3,7 @@
         <ul class="nav" id="main-menu">
 
             <li>
-                <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
+                <a class="waves-effect " href="index.html"><i class="fa fa-dashboard"></i>
                     Dashboard</a>
             </li>
             <li>
