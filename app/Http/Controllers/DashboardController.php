@@ -9,8 +9,9 @@ class DashboardController extends Controller
 {
     public function home()
     {
-        dd(Auth::user());
+        // dd(Auth::user());
         
+
         return view("user.dashboard.index");
     }
 }
