@@ -40,3 +40,4 @@ Route::group(["middleware" => "auth:userMainApp"], function () {
 Route::any('test-page', function () {
     return view("user.dashboard.index");
 });
+

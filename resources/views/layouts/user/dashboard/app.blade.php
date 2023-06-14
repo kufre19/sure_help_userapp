@@ -1,68 +1,36 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ env('APP_NAME') }} Dashboard</title>
-    @include('layouts.user.dashboard.styling')
-</head>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-<body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
-                    data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand waves-effect waves-dark" href="{{ url('dashboard') }}">
-                    <img src="{{ asset('surehelp_logo.png') }}" style="width: 50px; height: 50px;" alt="homepage" />
-                </a>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
-            </div>
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-            <ul class="nav navbar-top-links navbar-right">
-                {{-- <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
-                            class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a>
-                </li>
-                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown3"><i
-                            class="fa fa-tasks fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
-                            class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li> --}}
-                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
-                            class="fa fa-user fa-fw"></i> <b>{{Auth::user()->fullname}}</b> <i
-                            class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-        </nav>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
-            </li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
-            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </li>
-        </ul>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
+            <!-- Page Heading -->
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
-
-        <!--/. NAV TOP  -->
-        @include('layouts.user.dashboard.sidebar_navigation')
-        <!-- /. NAV SIDE  -->
-
-        @yield('main-content')
-        <!-- /. PAGE WRAPPER  -->
-    </div>
-    <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    @include('layouts.user.dashboard.js_scripts')
-
-
-</body>
-
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+    </body>
 </html>
