@@ -17,8 +17,4 @@ jobs:
         server: ftp.surehelp.org
         username:  ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-<<<<<<< HEAD
         server-dir: 
-=======
-        server-dir: /public_html/
->>>>>>> 456849aae78cd1e8bf04864d213993b338541379
