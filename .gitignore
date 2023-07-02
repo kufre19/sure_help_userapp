@@ -13,4 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+<<<<<<< HEAD
 /backup_git
+=======
+>>>>>>> 456849aae78cd1e8bf04864d213993b338541379
