@@ -13,8 +13,7 @@
                         <h2 class="title">Welcome to {{ env('APP_NAME') }}</h2>
                         <h5 >About Us</h5>
 
-                        <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="sub-title">We are an NGO.</p>
                     </div>
                     <div class="about-content">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
