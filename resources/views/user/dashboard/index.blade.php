@@ -17,7 +17,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">New Requests</h1>
+        <h1 class="h3 mb-4 text-gray-800">My Requests</h1>
 
     </div>
     <!-- /.container-fluid -->

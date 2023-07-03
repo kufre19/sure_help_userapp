@@ -33,8 +33,29 @@ Route::post("register", [\App\Http\Controllers\UserController::class, "register"
 
 
 
-Route::group(["middleware" => "auth:userMainApp"], function () {
-    Route::get("dashboard", [App\Http\Controllers\DashboardController::class,"home"]);
+Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], function () {
+    Route::get("/", [App\Http\Controllers\DashboardController::class,"home"]);
+
+    // request routes
+    Route::get("/request/new", [App\Http\Controllers\DashboardController::class,"newRequestPage"]);
+    Route::post("/request/create", [App\Http\Controllers\DashboardController::class,"createRequest"]);
+
+    Route::get("my/request", [App\Http\Controllers\DashboardController::class,"home"]);
+
+
+    // inbox routes
+    Route::get("inbox/messages", [App\Http\Controllers\DashboardController::class,"listMessages"]);
+    // remove the optional later so it won't cause issues in the future
+    Route::get("inbox/message/{id?}", [App\Http\Controllers\DashboardController::class,"readMessage"]);
+
+    // store routes
+    Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
+
+
+
+
+
+
 });
 
 Route::any('test-page', function () {

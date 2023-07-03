@@ -39,9 +39,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Request section:</h6>
-                <a class="collapse-item" href="{{url("/dashboard")}}">New</a>
-                <a class="collapse-item" href="{{url("/dashboard/request/view/approved")}}">Approved</a>
-                <a class="collapse-item" href="{{url("/dashboard/request/view/rejected")}}">Rejected</a>
+                <a class="collapse-item" href="{{url("/dashboard/request/new")}}">New</a>
+                <a class="collapse-item" href="{{url("/dashboard")}}">My Requests</a>
             </div>
         </div>
     </li>
@@ -56,7 +55,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Inbox section:</h6>
-                <a class="collapse-item" href="{{url('/dashboard/account/create')}}">Check Inbox</a>
+                <a class="collapse-item" href="{{url('/dashboard/inbox/messages')}}">Check Inbox</a>
                 
             </div>
         </div>
@@ -72,8 +71,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Free Store section:</h6>
-                <a class="collapse-item" href="{{url('/dashboard/partners/broadcast-message')}}">Free Store</a>
-                {{-- <a class="collapse-item" href="{{url('/dashboard/partners/list-partners')}}">My Wish List</a> --}}
+                <a class="collapse-item" href="{{url('/store')}}">Free Store</a>
+                <a class="collapse-item" href="{{url('dashboard/store/wish-list')}}">My Wish List</a>
                 {{-- <a class="collapse-item" href="#">Rejected</a> --}}
             </div>
         </div>
@@ -87,7 +86,7 @@
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <button class="rounded-circle border-0" id="sidebarToggle"><i class="arrow-left"></i></button>
     </div>
 
 </ul>

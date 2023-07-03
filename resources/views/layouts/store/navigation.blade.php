@@ -27,12 +27,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('store') }}">Free Store</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('login')}}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('register')}}">Sign Up</a>
-                    </li>
+                    @if (!Auth())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('register') }}">Sign Up</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('dashboard') }}">My Account</a>
+                        </li>
+                    @endif
+
                 </ul>
                 <!-- Left links -->
             </div>

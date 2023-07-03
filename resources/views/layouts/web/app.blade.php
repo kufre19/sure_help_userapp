@@ -20,6 +20,9 @@
 
     <link type="text/css" rel="stylesheet" href="{{asset('custom/assets/css/style.css')}}">
 
+        {{-- icons --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
