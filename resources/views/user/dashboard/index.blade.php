@@ -84,7 +84,7 @@
         </div>
         @if ($posts)
             <div class="row">
-                <p> {{ $posts->links() }}</p>
+                {{-- <p> {{ $posts->links() }}</p> --}}
             </div>
         @endif
 

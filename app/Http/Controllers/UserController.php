@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+    // display the login page
     public function loginPage()
     {
         return view("user.login");
