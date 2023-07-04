@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('store') }}">Free Store</a>
                     </li>
-                    @if (!Auth())
+                    @if (!Auth::check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('login') }}">Login</a>
                         </li>
