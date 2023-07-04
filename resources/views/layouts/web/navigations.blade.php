@@ -5,12 +5,15 @@
     <li><a href="{{ url('store') }}">Free Store</a></li>
 
     <li><a href="{{ url('contact') }}">Contact</a></li>
-    @if (!Auth::check())
-        <li><a href="{{ url('login') }}">Login</a></li>
-        <li><a href="{{ url('register') }}">SignUp</a></li>
-    @else
-        <li><a href="{{ url('dashboard') }}">My Account</a></li>
-    @endif
-
-
+   @auth
+   <li><a href="{{ url('dashboard') }}">My Account</a></li>
+   @endauth
+   
+        
+   @guest
+   <li><a href="{{ url('login') }}">Login</a></li>
+   <li><a href="{{ url('register') }}">SignUp</a></li>
+   @endguest
+   
+   
 </ul>
