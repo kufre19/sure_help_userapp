@@ -51,6 +51,12 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
     // store routes
     Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
 
+    // account settings
+    Route::get("account/settings", [App\Http\Controllers\DashboardController::class,"accountSettingsPage"]);
+    Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
+
+
+
 
 
 

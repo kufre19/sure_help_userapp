@@ -42,5 +42,16 @@ class DashboardController extends Controller
         
     }
 
+    public function accountSettingsPage()
+    {
+        return view("user.dashboard.account_settings");
+    }
+
+
+    public function accountSettingsUpdate()
+    {
+        
+    }
+
     
 }
