@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SponsorDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -70,12 +71,11 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
 
 
 Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"], function () {
-    Route::get("/", function(){
-        return "sponsor user";
-    });
+    Route::get("/", [SponsorDashboardController::class,"home"]);
+
 
     // request routes
-    Route::get("/request/new", [App\Http\Controllers\DashboardController::class,"newRequestPage"]);
+    Route::get("/request/new", [SponsorDashboardController::class,"newRequestPage"]);
     Route::post("/request/create", [App\Http\Controllers\DashboardController::class,"createRequest"]);
 
     Route::get("my/request", [App\Http\Controllers\DashboardController::class,"home"]);
