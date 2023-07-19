@@ -11,7 +11,7 @@
                 <div class="col-md-5">
                     <div class="section-title" id="about">
                         <h2 class="title">Welcome to {{ env('APP_NAME') }}</h2>
-                        <h5 >About Us</h5>
+                        <h5>About Us</h5>
 
                         <p class="sub-title">We are an NGO.</p>
                     </div>
@@ -19,16 +19,14 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="{{url('about')}}" class="primary-button">Read More</a>
+                        <a href="{{ url('about') }}" class="primary-button">Read More</a>
                     </div>
                 </div>
 
 
                 <div class="col-md-offset-1 col-md-6">
-                    <a href="#" class="about-video">
-                        <i class="play-icon fa fa-play"></i>
-                        <img src="{{ asset('custom/assets/img/about.jpg') }}" alt="">
-                    </a>
+                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                    </iframe>
                 </div>
 
             </div>
@@ -62,7 +60,7 @@
                 </div>
 
 
-               
+
 
 
                 <div class="col-md-4 col-sm-6">
@@ -84,7 +82,8 @@
 
     <div id="cta" class="section">
 
-        <div class="section-bg" style="background-image: url(custom/assets/img/background-1.jpg);" data-stellar-background-ratio="0.5">
+        <div class="section-bg" style="background-image: url(custom/assets/img/background-1.jpg);"
+            data-stellar-background-ratio="0.5">
         </div>
 
 
@@ -113,7 +112,8 @@
 
     <div id="testimonial" class="section">
 
-        <div class="section-bg" style="background-image: url(custom/assets/img/background-2.jpg);" data-stellar-background-ratio="0.5">
+        <div class="section-bg" style="background-image: url(custom/assets/img/background-2.jpg);"
+            data-stellar-background-ratio="0.5">
         </div>
 
 
