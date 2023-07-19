@@ -68,7 +68,7 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
 });
 
 
-Route::group(["middleware" => "auth:userMainApp","prefix"=>"sponsor/dashboard"], function () {
+Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"], function () {
     Route::get("/", function(){
         return "sponsor user";
     });

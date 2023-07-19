@@ -13,7 +13,7 @@ class UsersSponsorApp extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guard = "userSponsor";
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "users_sponsors_app";
 
       /**
@@ -25,6 +25,13 @@ class UsersSponsorApp extends Authenticatable
         'uuid',
         'fullname',
         'email',
+        "birthday",
+        "gender",
+        "help_offering",
+        "address",
+        "address",
+        "country",
+        "phone",
         'password',
     ];
 
