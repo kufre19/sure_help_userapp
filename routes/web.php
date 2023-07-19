@@ -26,8 +26,11 @@ Route::get("store", [\App\Http\Controllers\FreeStore::class, "index"]);
 
 Route::get("login", [\App\Http\Controllers\UserController::class, "loginPage"])->name("login");
 Route::get("register", [\App\Http\Controllers\UserController::class, "registerPage"]);
+Route::get("sponsor/register", [\App\Http\Controllers\UserController::class, "sponsorRegisterPage"]);
 Route::post("login", [\App\Http\Controllers\UserController::class, "login"]);
 Route::post("register", [\App\Http\Controllers\UserController::class, "register"]);
+Route::post("sponsor/register", [\App\Http\Controllers\UserController::class, "sponsorRegister"]);
+
 
 
 
@@ -35,6 +38,40 @@ Route::post("register", [\App\Http\Controllers\UserController::class, "register"
 
 Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], function () {
     Route::get("/", [App\Http\Controllers\DashboardController::class,"home"]);
+
+    // request routes
+    Route::get("/request/new", [App\Http\Controllers\DashboardController::class,"newRequestPage"]);
+    Route::post("/request/create", [App\Http\Controllers\DashboardController::class,"createRequest"]);
+
+    Route::get("my/request", [App\Http\Controllers\DashboardController::class,"home"]);
+
+
+    // inbox routes
+    Route::get("inbox/messages", [App\Http\Controllers\DashboardController::class,"listMessages"]);
+    // remove the optional later so it won't cause issues in the future
+    Route::get("inbox/message/{id?}", [App\Http\Controllers\DashboardController::class,"readMessage"]);
+
+    // store routes
+    Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
+
+    // account settings
+    Route::get("account/settings", [App\Http\Controllers\DashboardController::class,"accountSettingsPage"]);
+    Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
+
+
+
+
+
+
+
+
+});
+
+
+Route::group(["middleware" => "auth:userMainApp","prefix"=>"sponsor/dashboard"], function () {
+    Route::get("/", function(){
+        return "sponsor user";
+    });
 
     // request routes
     Route::get("/request/new", [App\Http\Controllers\DashboardController::class,"newRequestPage"]);

@@ -28,18 +28,25 @@
                         <a class="nav-link" href="{{ url('store') }}">Free Store</a>
                     </li>
                     @if (!Auth::guard('userMainApp')->check())
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('register') }}">Sign Up</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('dashboard') }}">My Account</a>
-                    </li>
-                @endif
-                
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('register') }}">Sign Up</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('dashboard') }}">My Account</a>
+                        </li>
+                    @endif
+
+                    @if (!Auth::guard('userSponsor')->check())
+                  
+                    <li class="nav-item"><a  class="nav-link" href="{{ url('sponsor/register') }}">Sponsor</a></li>
+                    @else
+                    <li class="nav-item"><a  class="nav-link" href="{{ url('sponsor/dashboard') }}">My Account</a></li>
+                    @endif
+
 
                 </ul>
                 <!-- Left links -->

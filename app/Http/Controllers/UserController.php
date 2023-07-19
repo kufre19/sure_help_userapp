@@ -21,6 +21,11 @@ class UserController extends Controller
         return view("user.register");
     }
 
+    public function sponsorRegisterPage()
+    {
+        return view("user.sponsor_register");
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -31,6 +36,9 @@ class UserController extends Controller
         if (Auth::guard("userMainApp")->attempt($credentials)) {
             // Authentication successful
             return redirect()->intended('/dashboard');
+        }elseif (Auth::guard("userSponsor")->attempt($credentials)) {
+            return redirect()->intended('sponsor/dashboard');
+
         } else {
             // Invalid credentials
             return redirect()->back()->withErrors([
