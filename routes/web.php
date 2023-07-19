@@ -25,6 +25,7 @@ Route::get("store", [\App\Http\Controllers\FreeStore::class, "index"]);
 
 
 Route::get("login", [\App\Http\Controllers\UserController::class, "loginPage"])->name("login");
+Route::get("logout", [\App\Http\Controllers\UserController::class, "logout"])->name("logout");
 Route::get("register", [\App\Http\Controllers\UserController::class, "registerPage"]);
 Route::get("sponsor/register", [\App\Http\Controllers\UserController::class, "sponsorRegisterPage"]);
 Route::post("login", [\App\Http\Controllers\UserController::class, "login"]);

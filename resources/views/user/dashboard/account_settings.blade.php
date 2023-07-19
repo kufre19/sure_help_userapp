@@ -23,8 +23,8 @@
     <!-- /.container-fluid -->
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col">
+        <div class="row mb-2">
+            <div class="col-6">
                 <div class="card">
 
                     <div class="card-header">Personal Info</div>
@@ -55,6 +55,50 @@
                 
                 
             </div>
+
+            <div class="col-6">
+                <img class="rounded-circle" alt="avatar1" width="50%" src="{{Auth::user()->profile_photo ?? asset('assets/custom/img/undraw_profile.svg')}}" />
+                {{-- <img class="rounded-circle" alt="avatar1" width="50%" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" /> --}}
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+
+                    <div class="card-header">Change Your Password</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{url('dashboard/account/settings/change-password')}}" enctype="multipart/form-data">
+                            @csrf
+                           
+                            <div class="form-group">
+                                <label for="exampleTextField">Old Password</label>
+                                <input type="text" name="address" class="form-control" id="exampleTextField" placeholder="Enter Your Old Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextField1">New Password</label>
+                                <input type="text" name="zipcode" class="form-control" id="exampleTextField1" placeholder="Enter New Password">
+
+                               
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextField1">Repeat New Password</label>
+                                <input type="text" name="zipcode" class="form-control" id="exampleTextField1" placeholder="Repeat Your New Password">
+
+                               
+                            </div>
+                         
+                           
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+           
 
         </div>
 

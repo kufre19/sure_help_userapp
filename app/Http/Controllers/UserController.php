@@ -17,6 +17,19 @@ class UserController extends Controller
         return view("user.login");
     }
 
+    public function logout()
+    {
+        if(Auth::guard("userSponsor")->check())
+        {
+            Auth::guard("userSponsor")->logout();
+        }
+        if(Auth::guard("userMainApp")->check())
+        {
+            Auth::guard("userMainApp")->logout();
+        }
+        return redirect("login");
+    }
+
     public function registerPage()
     {
         return view("user.register");
