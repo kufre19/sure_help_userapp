@@ -44,7 +44,7 @@ class SponsorDashboardController extends Controller
 
     public function accountSettingsPage()
     {
-        return view("user.dashboard.account_settings");
+        return view("user.sponsor_dashboard.account_settings");
     }
 
 

@@ -17,7 +17,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">My Requests</h1>
+        <h1 class="h3 mb-4 text-gray-800">News Feed</h1>
 
     </div>
     <!-- /.container-fluid -->
@@ -48,37 +48,7 @@
                 @endforeach
             @endif
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Leave a Comment</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="{{ url('dashboard/post/action/update') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="comment">Comment:</label>
-                                    <textarea class="form-control" name="admin_comment" id="comment" required></textarea>
-                                </div>
-                                <input type="hidden" id="button-type" name="button_type" value="">
-                                <input type="hidden" id="post_id" name="post_id" value="">
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" id="submit-comment-btn">Submit</button>
-                        </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
+            
 
 
         </div>

@@ -3,7 +3,7 @@
     <section class="vh-100 ">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                
+
                 <div class="col-md-9 col-lg-6 col-xl-5">
                     <h5>Become A Sponsor</h5>
                     <img src="{{ asset('custom/login_reg/img/sponsor_reg.svg') }}" class="img-fluid" alt=" image">
@@ -53,7 +53,7 @@
                             </select>
                         </div>
 
-                       
+
                         <!-- ,zipcode  input -->
                         <div class="form-outline mb-4">
                             <input type="text" id="phone_id" name="phone" class="form-control form-control-lg"
@@ -92,47 +92,55 @@
                         </div>
 
 
-                       
+
 
                         <div class="row">
                             <h5>Select the help category(s) you want to offer</h5>
                             <!-- Checkbox -->
                             <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox1" value="Agricultural Help">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox1"
+                                    value="Agricultural Help">
                                 <label class="form-check-label" for="inlineCheckbox1">Agricultural Help</label>
-                              </div>
-                              <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox2" value="Counseling Help">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox2"
+                                    value="Counseling Help">
                                 <label class="form-check-label" for="inlineCheckbox2">Counseling Help</label>
-                              </div>
-                              <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox3" value="Clothing Help">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                    id="inlineCheckbox3" value="Clothing Help">
                                 <label class="form-check-label" for="inlineCheckbox3">Clothing Help</label>
-                              </div>
-                              <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox4" value="Finacial Help">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                    id="inlineCheckbox4" value="Finacial Help">
                                 <label class="form-check-label" for="inlineCheckbox4">Finacial Help</label>
-                              </div>
-                              <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox5" value="Medical Help">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                    id="inlineCheckbox5" value="Medical Help">
                                 <label class="form-check-label" for="inlineCheckbox5">Medical Help</label>
-                              </div>
-                              <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox6" value="Food Items">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                    id="inlineCheckbox6" value="Food Items">
                                 <label class="form-check-label" for="inlineCheckbox6">Food Items</label>
-                              </div>
-                               <div class=" col-3 form-check form-check-inline">
-                                <input class="form-check-input" name="help_offering[]" type="checkbox" id="inlineCheckbox7" value="Shelter">
+                            </div>
+                            <div class=" col-3 form-check form-check-inline">
+                                <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                    id="inlineCheckbox7" value="Shelter">
                                 <label class="form-check-label" for="inlineCheckbox7">Shelter</label>
-                              </div>
+                            </div>
 
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="submit" class="btn  btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#25C702">Become A Sponsor</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0"> have an account already? <a href="{{ url('login') }}"
-                                    class="link-danger">Login</a></p>
+                                style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#25C702">Become A
+                                Sponsor</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0"> have an account already? <a
+                                    href="{{ url('login') }}" class="link-danger">Login</a></p>
                         </div>
 
                     </form>

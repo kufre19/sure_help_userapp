@@ -40,7 +40,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                @include('layouts.user.dashboard.custom.navigations')
+                @include('layouts.user.sponsor_dashboard.custom.navigations')
 
 
                 @yield('page_content')
@@ -49,7 +49,7 @@
             </div>
             <!-- End of Main Content -->
 
-    @include('layouts.user.dashboard.custom.footer')
+    @include('layouts.user.sponsor_dashboard.custom.footer')
            
 
         </div>
@@ -63,10 +63,10 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    @include('layouts.user.dashboard.custom.modals')
+    @include('layouts.user.sponsor_dashboard.custom.modals')
    
 
-    @include('layouts.user.dashboard.custom.js_scripts')
+    @include('layouts.user.sponsor_dashboard.custom.js_scripts')
     @yield('extraJS')
 
 </body>

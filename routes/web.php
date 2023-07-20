@@ -90,7 +90,7 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
     Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
 
     // account settings
-    Route::get("account/settings", [App\Http\Controllers\DashboardController::class,"accountSettingsPage"]);
+    Route::get("account/settings", [SponsorDashboardController::class,"accountSettingsPage"]);
     Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
 
 
