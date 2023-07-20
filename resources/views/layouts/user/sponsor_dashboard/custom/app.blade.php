@@ -31,7 +31,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('layouts.user.dashboard.custom.sidebar')
+        @include('layouts.user.sponsor_dashboard.custom.sidebar')
       
 
         <!-- Content Wrapper -->
