@@ -77,8 +77,8 @@
         </div>
     </li>
 
-     <!-- Nav Item - Pages Collapse Menu -->
-     {{-- <li class="nav-item">
+     {{-- <!-- Nav Item - Pages Collapse Menu -->
+     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
             aria-expanded="true" aria-controls="collapseFour">
             <i class="fas fa-fw fa-store"></i>
@@ -89,7 +89,7 @@
                 <h6 class="collapse-header">Free Store section:</h6>
                 <a class="collapse-item" href="{{url('/store')}}">Free Store</a>
                 <a class="collapse-item" href="{{url('dashboard/store/wish-list')}}">My Wish List</a>
-                {{-- <a class="collapse-item" href="#">Rejected</a> --}}
+                <a class="collapse-item" href="#">Rejected</a>
             </div>
         </div>
     </li> --}}
