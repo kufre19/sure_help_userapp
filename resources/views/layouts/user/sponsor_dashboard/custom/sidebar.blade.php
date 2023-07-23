@@ -33,13 +33,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-bars"></i>
-            <span>Posts</span>
+            <i class="fas fa-fw fa-rss"></i>
+            <span>News Feed</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Posts section:</h6>
-                <a class="collapse-item" href="{{url("/dashboard/request/new")}}">See New Posts</a>
+                <h6 class="collapse-header">Feeds section:</h6>
+                <a class="collapse-item" href="{{url("/dashboard/request/new")}}">See News Feed</a>
             
             </div>
         </div>
@@ -71,7 +71,7 @@
         <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Payment Methods section:</h6>
-                <a class="collapse-item" href="{{url('/store')}}">Free Store</a>
+                <a class="collapse-item" href="{{url('/store')}}">Payment Methods</a>
             
             </div>
         </div>

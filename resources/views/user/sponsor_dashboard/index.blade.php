@@ -40,7 +40,9 @@
 
                                 <p>{{ $post->post_description }}</p>
                             </div>
-                            
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-success" >Provide Help</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach
