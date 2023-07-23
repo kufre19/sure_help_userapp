@@ -23,8 +23,14 @@
     <!-- /.container-fluid -->
 
     <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-6">
+        <div class="row  g-5 mb-2">
+
+            <div class="col-lg-6 d-flex justify-content-center">
+                <img class="rounded-circle" alt="avatar1" width="50%" src="{{Auth::user()->profile_photo ?? asset('assets/custom/img/undraw_profile.svg')}}" />
+                {{-- <img class="rounded-circle" alt="avatar1" width="50%" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" /> --}}
+            </div>
+
+            <div class="col-lg-6">
                 <div class="card">
 
                     <div class="card-header">Personal Info</div>
@@ -45,7 +51,7 @@
                             
                             <div class="form-group">
                                 <label for="exampleFile">Change Profile Pooto</label>
-                                <input type="file" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
+                                <input type="file" capture="user" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
                             </div>
                            
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -56,15 +62,12 @@
                 
             </div>
 
-            <div class="col-6">
-                <img class="rounded-circle" alt="avatar1" width="50%" src="{{Auth::user()->profile_photo ?? asset('assets/custom/img/undraw_profile.svg')}}" />
-                {{-- <img class="rounded-circle" alt="avatar1" width="50%" src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" /> --}}
-            </div>
+           
 
         </div>
 
-        <div class="row">
-            <div class="col-6">
+        <div class="row  g-5 ">
+            <div class="col-lg-6">
                 <div class="card">
 
                     <div class="card-header">Change Your Password</div>
