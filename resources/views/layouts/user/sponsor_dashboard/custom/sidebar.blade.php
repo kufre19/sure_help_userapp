@@ -39,7 +39,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Feeds section:</h6>
-                <a class="collapse-item" href="{{url("/dashboard/request/new")}}">See News Feed</a>
+                <a class="collapse-item" href="{{url("sponsor/dashboard/news-feeds")}}">See News Feed</a>
             
             </div>
         </div>
@@ -55,7 +55,7 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Inbox section:</h6>
-                <a class="collapse-item" href="{{url('/dashboard/inbox/messages')}}">Check Inbox</a>
+                <a class="collapse-item" href="{{url('sponsor/dashboard/inbox/messages')}}">Check Inbox</a>
                 
             </div>
         </div>
@@ -71,7 +71,7 @@
         <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Payment Methods section:</h6>
-                <a class="collapse-item" href="{{url('/store')}}">Payment Methods</a>
+                <a class="collapse-item" href="{{url('sponsor/dashboard')}}">Payment Methods</a>
             
             </div>
         </div>
