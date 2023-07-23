@@ -40,9 +40,7 @@
 
                                 <p>{{ $post->post_description }}</p>
                             </div>
-                            <div class="card-footer">
-                                <p>Status: {{$post->post_status}}</p>
-                            </div>
+                            
                         </div>
                     </div>
                 @endforeach
