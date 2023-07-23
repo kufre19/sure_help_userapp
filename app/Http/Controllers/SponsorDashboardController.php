@@ -15,7 +15,7 @@ class SponsorDashboardController extends Controller
     public function home()
     {
        
-        $posts = $this->listAllPosts();
+        $posts = $this->getAllApprovedPost();
         return view("user.sponsor_dashboard.index",compact("posts"));
     }
 

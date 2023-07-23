@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function home()
     {
        
-        $posts = $this->listAllPosts();
+        $posts = $this->UserPosts();
         return view("user.dashboard.index",compact("posts"));
     }
 
