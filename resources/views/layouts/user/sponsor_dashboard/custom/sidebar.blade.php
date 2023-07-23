@@ -68,7 +68,7 @@
             <i class="fas fa-fw fa-wallet"></i>
             <span>Payment Methods</span>
         </a>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Payment Methods section:</h6>
                 <a class="collapse-item" href="{{url('/store')}}">Free Store</a>

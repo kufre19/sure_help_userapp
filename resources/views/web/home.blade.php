@@ -8,7 +8,7 @@
 
             <div class="row">
 
-                <div class="col-md-5">
+                <div class="col-md-5 col-sm-12">
                     <div class="section-title" id="about">
                         <h2 class="title">Welcome to {{ env('APP_NAME') }}</h2>
                         <h5>About Us</h5>
@@ -24,8 +24,8 @@
                 </div>
 
 
-                <div class="col-md-offset-1 col-md-6">
-                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                <div class="col-md-offset-1 col-md-6  col-sm-12">
+                    <iframe width="100%" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
                     </iframe>
                 </div>
 
