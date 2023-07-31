@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Wishlist;
 use App\Traits\HandlePosts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,8 @@ class DashboardController extends Controller
         return view("user.dashboard.create_new_request");
     }
 
+    
+
 
     public function listMessages()
     {
@@ -38,7 +41,9 @@ class DashboardController extends Controller
 
     public function UserWishList()
     {
-        return view("user.dashboard.wish-list");
+        $wishlist_model = new Wishlist();
+        $wishes = $wishlist_model->where("user_id", Auth::user()->id)->with("wishedItem")->paginate();
+        return view("user.dashboard.wish-list",compact("wishes"));
         
     }
 

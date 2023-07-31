@@ -13,146 +13,57 @@
     <!-- /.container-fluid -->
 
     <div class="container-fluid">
+        @if (session()->has('danger'))
+            <div class="alert alert-danger" role="alert">
+                {{ session()->get('danger') }}
+            </div>
+        @endif
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
 
+            @if ($wishes->count() > 0)
+                @foreach ($wishes as $wish)
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                                data-mdb-ripple-color="light">
+                                {{-- change it later to use asset variable --}}
+                                <img src="{{ $wish->wishedItem->item_image }}" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask">
+
+                                    </div>
+                                    <div class="hover-overlay">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                            <div class="card-body">
+                                <a href="" class="text-reset">
+                                    <h5 class="card-title mb-2"> {{ $wish->wishedItem->item_name }}</h5>
+                                </a>
+                                <a href="" class="text-reset ">
+                                    <p>{{ $wish->wishedItem->item_category }}</p>
+                                </a>
+                                <a href="{{ url('dashboard/wishlist/remove') . '/' . $wish->id }}"><i
+                                        class="fa fa-trash"></i>remove from list</a>
+                            </div>
+                            @if ($wish->admin_comment != null)
+                                <div class="card-footer">
+                                    <p>Message: {{$wish->admin_comment}}</p>
+
                                 </div>
-                            </div>
-                        </a>
+                            @endif
+
+
+                        </div>
                     </div>
-                    <div class="card-body">
+                @endforeach
+            @else
+                <h4>No Items On Your Wish List, Head to the free Store to get items!</h4>
+            @endif
 
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
 
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
-
-                            </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
-
-                            </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
-
-                            </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
-
-                            </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
-                        <a href="#!">
-                            <div class="mask">
-
-                            </div>
-                            <div class="hover-overlay">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-
-                        <h5 class="card-title mb-2">Denim shirt</h5>
-                        Status: Approved
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- /.card -->
 
         </div>
 

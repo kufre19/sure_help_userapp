@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FreeStore;
 use App\Http\Controllers\SponsorDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -54,7 +55,6 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
     Route::get("inbox/message/{id?}", [App\Http\Controllers\DashboardController::class,"readMessage"]);
 
     // store routes
-    Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
 
     // account settings
     Route::get("account/settings", [App\Http\Controllers\DashboardController::class,"accountSettingsPage"]);
@@ -62,6 +62,11 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
 
 
 
+
+    // authenticated wish list route
+    Route::get("wishlist/add/item/{id}",[FreeStore::class,"wishlist_add"]);
+    Route::get("wishlist/remove/{id}",[FreeStore::class,"wishlist_remove"]);
+    Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
 
 
 
@@ -93,14 +98,8 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
     Route::get("account/settings", [SponsorDashboardController::class,"accountSettingsPage"]);
     Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
 
-
-
-
-
-
-
-
 });
+// SPONSOR USER URL ENDS HERE
 
 Route::any('test-page', function () {
     return view("user.dashboard.index");
