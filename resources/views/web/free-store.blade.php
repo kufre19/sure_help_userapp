@@ -24,7 +24,7 @@
                 @if ($items->count() > 0)
                     @foreach ($items as $item)
                         <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card">
+                            <div class="card shadow">
                                 <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                                     data-mdb-ripple-color="light">
                                     {{-- change it later to use asset variable --}}
@@ -58,6 +58,14 @@
                         Sorry no item found in the free shop currently!
                     </p>
                 @endif
+            </div>
+            <div class="row">
+                <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+                    <ul class="pagination">
+                        {{$items->links()}}
+    
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>
