@@ -13,7 +13,7 @@ class FreeStore extends Controller
     {
         $free_shop_model = new FreeShop();
         $items = $free_shop_model->where('item_status', 'active')->paginate(15);
-        return view("store.store-index", compact("items"));
+        return view("web.free-store", compact("items"));
     }
 
 
