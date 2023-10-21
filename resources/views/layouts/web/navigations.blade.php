@@ -1,23 +1,26 @@
-<ul class="navbar-menu nav navbar-nav navbar-right">
-    <li><a href="{{ url('/') }}">Home</a></li>
-   
 
-    <li><a href="{{ url('store') }}">Free Store</a></li>
-
-    <li><a href="{{ url('contact') }}">Contact</a></li>
-    @if (!Auth::guard('userMainApp')->check())
-        <li><a href="{{ url('login') }}">Login</a></li>
-        <li><a href="{{ url('register') }}">SignUp</a></li>
-    @else
-        <li><a href="{{ url('dashboard') }}">My Account</a></li>
-    @endif
-
-    @if (!Auth::guard('userSponsor')->check())
-        <li><a href="{{ url('login') }}">Login</a></li>
-        <li><a href="{{ url('sponsor/register') }}">Sponsor</a></li>
-    @else
-        <li><a href="{{ url('sponsor/dashboard') }}">My Account</a></li>
-    @endif
-
-
-</ul>
+<header>
+    <div class="my-nav">
+      <div class="container">
+        <div class="row">
+          <div class="nav-items">
+            <div class="menu-toggle"></div>
+            <div class="logo">
+              <img src="{{asset('assets/web/images/logo.png')}}" width="20%">
+            </div>
+            <div class="menu-items">
+              <div class="menu">
+                <ul>
+                  <li><a href="{{url('/')}}">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Free Store</a></li>
+                  {{-- <li><a href="blog.html">Blog</a></li> --}}
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
