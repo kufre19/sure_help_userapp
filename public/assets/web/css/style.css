@@ -89,7 +89,7 @@ a:hover {
           .my-nav .nav-items .menu-items .menu {
             float: left;
             display: none;
-            background: rgba(0, 33, 71, 0.9);
+            background: rgba(34, 216, 34, 0.9);
             width: 100%;
             position: relative; } }
         .my-nav .nav-items .menu-items .menu ul li {
@@ -116,7 +116,7 @@ a:hover {
                 padding: 10px 0px; } }
 
 .og-hf {
-  background: rgba(0, 33, 71, 0.9);
+  background: rgba(0, 71, 18, 0.9);
   position: fixed;
   height: 77px;
   z-index: 999;
