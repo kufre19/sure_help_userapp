@@ -36,11 +36,13 @@
                     <div class="_kl_de_w">
                         <h3>Quick Links</h3>
                         <ol>
-                            <li><i class="far fa-angle-right"></i>home</li>
-                            <li><i class="far fa-angle-right"></i>About Us</li>
-                            <li><i class="far fa-angle-right"></i>Free Store</li>
-                            {{-- <li><i class="far fa-angle-right"></i>Blog</li> --}}
-                            <li class="last"><i class="far fa-angle-right"></i>Contact Us</li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('/')}}">Home</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('about')}}">About</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('store')}}">Free Store</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('login')}}">Login</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('register')}}">Sign Up</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{url('sponsor/register')}}">Become A Sponsor</a></li>
+                            <li class="last"><i class="far fa-angle-right"></i><a href="{{url('contact')}}">Contact Us</a></li>
                         </ol>
                     </div>
                 </div>

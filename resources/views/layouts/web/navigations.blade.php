@@ -12,10 +12,11 @@
               <div class="menu">
                 <ul>
                   <li><a href="{{url('/')}}">Home</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Free Store</a></li>
-                  {{-- <li><a href="blog.html">Blog</a></li> --}}
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="{{url('login')}}">Login</a></li>
+                  <li><a href="{{url('register')}}">Sign Up</a></li>
+                  <li><a href="{{url('about')}}">About Us</a></li>
+                  <li><a href="{{url('store')}}">Free Store</a></li>
+                  <li><a href="{{url('sponsor/register')}}">Become A Sponsor</a></li>
                 </ul>
               </div>
             </div>
