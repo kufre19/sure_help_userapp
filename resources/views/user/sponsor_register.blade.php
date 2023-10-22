@@ -140,43 +140,47 @@
 
 
                             <div class="row">
-                                <h5>Select the help category(s) you want to offer</h5>
-                                <!-- Checkbox -->
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox1" value="Agricultural Help">
-                                    <label class="form-check-label" for="inlineCheckbox1">Agricultural Help</label>
+                                <div class="col">
+                                    
+                                    <h5>Select the help category(s) you want to offer</h5>
+                                    <!-- Checkbox -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox1" value="Agricultural Help">
+                                        <label class="form-check-label" for="inlineCheckbox1">Agricultural Help</label>
+                                    </div>
+                                    <div class="  form-check">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox2" value="Counseling Help">
+                                        <label class="form-check-label" for="inlineCheckbox2">Counseling Help</label>
+                                    </div>
+                                    <div class="  form-check ">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox3" value="Clothing Help">
+                                        <label class="form-check-label" for="inlineCheckbox3">Clothing Help</label>
+                                    </div>
+                                    <div class="  form-check ">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox4" value="Finacial Help">
+                                        <label class="form-check-label" for="inlineCheckbox4">Finacial Help</label>
+                                    </div>
+                                    <div class="  form-check ">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox5" value="Medical Help">
+                                        <label class="form-check-label" for="inlineCheckbox5">Medical Help</label>
+                                    </div>
+                                    <div class="  form-check ">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox6" value="Food Items">
+                                        <label class="form-check-label" for="inlineCheckbox6">Food Items</label>
+                                    </div>
+                                    <div class="  form-check ">
+                                        <input class="form-check-input" name="help_offering[]" type="checkbox"
+                                            id="inlineCheckbox7" value="Shelter">
+                                        <label class="form-check-label" for="inlineCheckbox7">Shelter</label>
+                                    </div>
                                 </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox2" value="Counseling Help">
-                                    <label class="form-check-label" for="inlineCheckbox2">Counseling Help</label>
-                                </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox3" value="Clothing Help">
-                                    <label class="form-check-label" for="inlineCheckbox3">Clothing Help</label>
-                                </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox4" value="Finacial Help">
-                                    <label class="form-check-label" for="inlineCheckbox4">Finacial Help</label>
-                                </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox5" value="Medical Help">
-                                    <label class="form-check-label" for="inlineCheckbox5">Medical Help</label>
-                                </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox6" value="Food Items">
-                                    <label class="form-check-label" for="inlineCheckbox6">Food Items</label>
-                                </div>
-                                <div class=" col-3 form-check form-check-inline">
-                                    <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                        id="inlineCheckbox7" value="Shelter">
-                                    <label class="form-check-label" for="inlineCheckbox7">Shelter</label>
-                                </div>
+                               
 
                             </div>
 
