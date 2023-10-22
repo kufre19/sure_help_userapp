@@ -81,4 +81,6 @@
 <script src="{{ asset('assets/web/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/script.js') }}"></script>
 
+@yield('extra-js')
+
 </html>
