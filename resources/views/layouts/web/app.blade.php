@@ -76,6 +76,11 @@
     </footer>
 </body>
 
+<!-- Floating Donate Button -->
+<a href="{{ url('/donate') }}" class="floating-donate-btn">
+    Donate
+</a>
+
 <script src="{{ asset('assets/web/js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/bootstrap.min.js') }}"></script>
