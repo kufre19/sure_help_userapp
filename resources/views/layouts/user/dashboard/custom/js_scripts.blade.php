@@ -1,3 +1,11 @@
+
+<script>
+    $(document).ready(function() {
+        // Trigger the alert to show for 10 seconds
+        $("#disapear-alert").fadeIn().delay(10000).fadeOut();
+    });
+</script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('js/custom/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('js/custom/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -23,9 +31,3 @@
 cb=googleTranslateElementInit"></script>
 
 
-<script>
-    $(document).ready(function() {
-        // Trigger the alert to show for 10 seconds
-        $("#disapear-alert").fadeIn().delay(10000).fadeOut();
-    });
-</script>

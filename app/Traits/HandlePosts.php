@@ -13,7 +13,7 @@ trait HandlePosts {
     public function UserPosts()
     {
         $post_model = new UsersMainPost();
-        $posts = $post_model->where('uuid',  Auth::user()->uuid)->paginate();
+        $posts = $post_model->where('uuid',  Auth::user()->uuid)->paginate(6);
         if ($posts->isEmpty()) {
             // No posts for this user
             return false;
