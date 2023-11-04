@@ -94,7 +94,7 @@
                 if (result.isConfirmed) {
                     // Send AJAX request
                     $.ajax({
-                        url: "{{ url('/request/delete/') }}/" +
+                        url: "{{ url('dashboard/request/delete/') }}/" +
                         postId, // Update this URL to your delete route
                         type: 'POST',
                         data: {
