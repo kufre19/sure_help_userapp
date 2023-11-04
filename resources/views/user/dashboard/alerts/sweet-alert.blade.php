@@ -4,10 +4,9 @@
             title: 'Success!',
             text: '{{ session('success') }}',
             icon: 'success',
-            timer: 10000,
+            timer: 3000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-left',
             showConfirmButton: false,
             padding: '1em'
         });
@@ -20,10 +19,9 @@
             title: 'Error!',
             text: '{{ session('error') }}',
             icon: 'error',
-            timer: 10000,
+            timer: 3000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-left',
             showConfirmButton: false,
             padding: '1em'
         });
