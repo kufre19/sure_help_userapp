@@ -76,7 +76,7 @@ class DashboardController extends Controller
             $videoName = time().'_'.$video->getClientOriginalName();
             
             // Target directory outside of Laravel app directory
-            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/../development/main/video_posts/';
+            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/development/main/video_posts/';
             $video->move($targetDir, $videoName);
             $videoPath = "https://development.surehelp.org/main/video_posts/" . $videoName;
         }
