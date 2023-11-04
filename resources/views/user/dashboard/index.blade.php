@@ -126,58 +126,14 @@
 
     </div>
 
+    @include('user.dashboard.modals.create-new-request')
 
 @endsection
 
-@include('user.dashboard.modals.create-new-request')
 
 
 @section('extraJS')
-    <script>
-        $('#closeModal2').click(function() {
-            $('#exampleModal2').modal('hide');
-        });
-        $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var type = button.data('type') // Extract info from data-* attributes
-            var post_id = button.data('post-id') // Extract info from data-* attributes
+  <script>
 
-            var modal = $(this)
-            modal.find('#button-type').val(type)
-            modal.find('#post_id').val(post_id)
-
-        })
-
-        $(document).ready(function() {
-            // Event listener for fetch user button
-            $('.fetch-user').click(function() {
-                var userId = $(this).data('user-id');
-
-                // AJAX request to fetch user data
-                $.ajax({
-                    type: 'GET',
-                    url: "{{ url('dashboard/request/view/user') }}" + "/" + userId,
-                    success: function(user) {
-                        // Show user data in modal popup
-                        $('.user-image').css('background-image', 'url(' + user.imageSrc + ')');
-                        var details_loaded = "Name:" + user.name + '<br>' + "Email:" + user
-                            .email + '<br>' +
-                            "Phone" + user.phone + '<br>' + "Address:" + user.address + '<br>' +
-                            "Country:" + user.country
-                        $('.user-details').html(details_loaded);
-                        $('.userModal').css('display', 'block');
-                    },
-                    error: function() {
-                        alert('Error fetching user data');
-                    }
-                });
-            });
-
-
-        });
-        $('#closeUserModal').click(function() {
-
-            $('#userModalid').css('display', 'none');
-        });
-    </script>
+  </script>
 @endsection

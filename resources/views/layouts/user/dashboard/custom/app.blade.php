@@ -63,7 +63,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    @include('layouts.user.dashboard.custom.modals')
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

@@ -85,6 +85,9 @@
 <script src="{{ asset('assets/web/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@include('user.dashboard.alerts.sweet-alert')
 
 @yield('extra-js')
 
