@@ -32,7 +32,7 @@
 <body id="page-top">
     {{-- load all alerts --}}
     @include('user.dashboard.alerts.sweet-alert')
-    @include('user.dashboard.alerts.all')
+    {{-- @include('user.dashboard.alerts.all') --}}
 
 
     <!-- Page Wrapper -->
