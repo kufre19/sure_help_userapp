@@ -19,6 +19,12 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800">My Requests</h1>
 
+        <!-- Add this at the top left of the dashboard page content area -->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createRequestModal">
+            + New Request
+        </button>
+
+
     </div>
     <!-- /.container-fluid -->
 
@@ -41,7 +47,7 @@
                                 <p>{{ $post->post_description }}</p>
                             </div>
                             <div class="card-footer">
-                                <p>Status: {{$post->post_status}}</p>
+                                <p>Status: {{ $post->post_status }}</p>
                             </div>
                         </div>
                     </div>
@@ -118,7 +124,11 @@
 
 
     </div>
+
+
 @endsection
+
+@include('user.dashboard.modals.create-new-request')
 
 
 @section('extraJS')

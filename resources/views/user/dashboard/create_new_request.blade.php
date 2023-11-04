@@ -25,12 +25,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 mb-4">
-                <form method="POST" action="{{url('dashboard/request/create')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('dashboard/request/create') }}" enctype="multipart/form-data">
                     @csrf
-                   
+
                     <div class="form-group">
                         <label for="exampleTextField">Title of your help post</label>
-                        <input type="text" name="title" class="form-control" id="exampleTextField" placeholder="Enter title">
+                        <input type="text" name="title" class="form-control" id="exampleTextField"
+                            placeholder="Enter title">
                     </div>
                     <div class="form-group">
                         <label for="exampleTextArea">Describe your need</label>
@@ -53,10 +54,10 @@
                         <label for="exampleFile">Upload Your Video</label>
                         <input type="file" name="help_video" class="form-control-file" id="exampleFile" accept="video/*">
                     </div>
-                   
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-                
+
             </div>
 
         </div>
