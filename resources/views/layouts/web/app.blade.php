@@ -78,7 +78,7 @@
 
 <!-- Floating Donate Button -->
 <a href="{{ url('/donate') }}" class="floating-donate-btn">
-    Donate
+    <i class=" fa fa-donate"></i>
 </a>
 
 <script src="{{ asset('assets/web/js/jquery-3.2.1.min.js') }}"></script>
