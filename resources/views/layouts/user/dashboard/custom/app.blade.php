@@ -52,7 +52,6 @@
 
                 @yield('page_content')
 
-
             </div>
             <!-- End of Main Content -->
 

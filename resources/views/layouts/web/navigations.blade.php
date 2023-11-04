@@ -5,7 +5,7 @@
         <div class="nav-items">
           <div class="menu-toggle"></div>
           <div class="logo">
-            <img src="{{ asset('assets/web/images/logo.png') }}" width="30%">
+            <img src="{{ asset('assets/web/images/logo.png') }}" width="20%">
           </div>
           <div class="menu-items">
             <div class="menu">
