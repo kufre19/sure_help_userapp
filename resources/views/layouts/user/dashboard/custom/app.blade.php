@@ -31,7 +31,6 @@
 
 <body id="page-top">
     {{-- load all alerts --}}
-    @include('user.dashboard.alerts.sweet-alert')
     {{-- @include('user.dashboard.alerts.all') --}}
 
 
@@ -64,15 +63,18 @@
     </div>
     <!-- End of Page Wrapper -->
 
+    @include('layouts.user.dashboard.custom.modals')
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-    @include('layouts.user.dashboard.custom.modals')
 
 
     @include('layouts.user.dashboard.custom.js_scripts')
+    @include('user.dashboard.alerts.sweet-alert')
+
     @yield('extraJS')
 
 
