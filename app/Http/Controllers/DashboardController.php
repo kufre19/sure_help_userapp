@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use App\Models\UserMainPost;
+use App\Models\UsersMainPost;
 use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
@@ -83,7 +84,7 @@ class DashboardController extends Controller
         }
 
         // Create a new UserMainPost instance
-        $post = new UserMainPost();
+        $post = new UsersMainPost();
         $post->uuid = auth()->user()->uuid; // Assuming 'uuid' is a field in your users table
         $post->post_uuid = Str::uuid(); // Generate a UUID for the post
         $post->post_title = $request->title;
@@ -103,7 +104,7 @@ class DashboardController extends Controller
     public function deleteRequest(Request $request, $id)
     {
         // Retrieve the post by ID
-        $post = UserMainPost::find($id);
+        $post = UsersMainPost::find($id);
 
         // Check if the post exists
         if (!$post) {
