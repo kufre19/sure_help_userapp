@@ -17,8 +17,11 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-        {{-- icons --}}
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    {{-- icons --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Include the SweetAlert CSS (optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/custom/css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -27,14 +30,16 @@
 </head>
 
 <body id="page-top">
-      {{-- load all alerts --}}
-      @include('user.dashboard.alerts.all')
+    {{-- load all alerts --}}
+    @include('user.dashboard.sweet-alert.all')
+    @include('user.dashboard.alerts.all')
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         @include('layouts.user.dashboard.custom.sidebar')
-      
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -51,8 +56,8 @@
             </div>
             <!-- End of Main Content -->
 
-    @include('layouts.user.dashboard.custom.footer')
-           
+            @include('layouts.user.dashboard.custom.footer')
+
 
         </div>
         <!-- End of Content Wrapper -->
@@ -66,12 +71,12 @@
     </a>
 
     @include('layouts.user.dashboard.custom.modals')
-   
+
 
     @include('layouts.user.dashboard.custom.js_scripts')
     @yield('extraJS')
 
-    
+
 
 </body>
 
