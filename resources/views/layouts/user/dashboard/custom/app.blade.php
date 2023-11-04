@@ -31,7 +31,7 @@
 
 <body id="page-top">
     {{-- load all alerts --}}
-    @include('user.dashboard.sweet-alert.all')
+    @include('user.dashboard.alerts.sweet-alert')
     @include('user.dashboard.alerts.all')
 
 
