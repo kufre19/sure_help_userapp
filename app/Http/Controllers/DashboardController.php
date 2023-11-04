@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use App\Models\UserMainPost;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -70,11 +71,11 @@ class DashboardController extends Controller
             'help_video' => 'required|file|mimes:mp4', // Make sure the validation rules fit your needs
         ]);
 
-          // Handle file upload
-          if ($request->hasFile('help_video')) {
+        // Handle file upload
+        if ($request->hasFile('help_video')) {
             $video = $request->file('help_video');
-            $videoName = time().'_'.$video->getClientOriginalName();
-            
+            $videoName = time() . '_' . $video->getClientOriginalName();
+
             // Target directory outside of Laravel app directory
             $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/development/main/video_posts/';
             $video->move($targetDir, $videoName);
@@ -99,6 +100,31 @@ class DashboardController extends Controller
     }
 
 
+    public function deleteRequest(Request $request, $id)
+    {
+        // Retrieve the post by ID
+        $post = UserMainPost::find($id);
 
+        // Check if the post exists
+        if (!$post) {
+            return response()->json(['error' => 'Post not found.'], 404);
+        }
 
+        // Optionally add authorization checks here
+        // if (auth()->user()->cant('delete', $post)) {
+        //     return response()->json(['error' => 'Unauthorized'], 403);
+        // }
+
+        // Attempt to delete the post
+        try {
+            $post->delete();
+            return response()->json(['success' => 'The post has been successfully deleted.'], 200);
+        } catch (\Exception $e) {
+            // Log the exception
+            Log::error($e->getMessage());
+
+            // If there is an error during deletion, return an error response
+            return response()->json(['error' => 'An error occurred while deleting the post.'], 500);
+        }
+    }
 }

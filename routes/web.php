@@ -45,6 +45,8 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
     // request routes
     Route::get("/request/new", [App\Http\Controllers\DashboardController::class,"newRequestPage"]);
     Route::post("/request/create", [App\Http\Controllers\DashboardController::class,"createRequest"]);
+    Route::post("/request/delete/{id}", [App\Http\Controllers\DashboardController::class,"deleteRequest"]);
+
 
     Route::get("my/request", [App\Http\Controllers\DashboardController::class,"home"]);
 

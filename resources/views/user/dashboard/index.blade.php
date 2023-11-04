@@ -48,44 +48,17 @@
                             </div>
                             <div class="card-footer">
                                 <p>Status: {{ $post->post_status }}</p>
+                                <button class="btn btn-danger btn-sm delete-post" data-id="{{ $post->id }}"><i
+                                        class="fas fa-trash-alt"></i></button>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
             @endif
 
-          
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Leave a Comment</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="{{ url('dashboard/post/action/update') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="comment">Comment:</label>
-                                    <textarea class="form-control" name="admin_comment" id="comment" required></textarea>
-                                </div>
-                                <input type="hidden" id="button-type" name="button_type" value="">
-                                <input type="hidden" id="post_id" name="post_id" value="">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" id="submit-comment-btn">Submit</button>
-                        </div>
-                        </form>
 
-                    </div>
-                </div>
-            </div>
 
 
         </div>
@@ -94,33 +67,6 @@
                 <p> {{ $posts->links() }}</p>
             </div>
         @endif
-
-        <div class="modal userModal " id="userModalid" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="userModalLabel">User Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-body">
-                            <div class="user-image"></div>
-                            <div class="user-details"></div>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button id="closeUserModal" type="button" class="btn btn-secondary">Close</button>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
 
 
 
@@ -133,7 +79,49 @@
 
 
 @section('extraJS')
-  <script>
-
-  </script>
+    <script>
+        $(document).on('click', '.delete-post', function() {
+            var postId = $(this).data('id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Send AJAX request
+                    $.ajax({
+                        url: "{{ url('dashboard/post/delete') }}/" +
+                        postId, // Update this URL to your delete route
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: postId
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your post has been deleted.',
+                                'success'
+                            )
+                            // Remove the card element
+                            $('#card-' + postId).fadeOut(500, function() {
+                                $(this).remove();
+                            });
+                        },
+                        error: function(response) {
+                            Swal.fire(
+                                'Error!',
+                                'There was a problem deleting your post.',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            })
+        });
+    </script>
 @endsection
