@@ -25,9 +25,7 @@ cb=googleTranslateElementInit"></script>
 
 <script>
     $(document).ready(function() {
-        // Trigger the alert to show for 3 seconds
-        $(document).ready(function() {
-            $("#success-alert").fadeIn().delay(10000).fadeOut();
-        });
+        // Trigger the alert to show for 10 seconds
+        $("#disapear-alert").fadeIn().delay(10000).fadeOut();
     });
 </script>
