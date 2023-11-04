@@ -33,14 +33,15 @@
             @if ($posts != null)
                 @foreach ($posts as $post)
                     <div class="col-lg-4 mb-4">
-                        <div class="card"  id="post-card-{{ $post->id }}">
+                        <div class="card" id="post-card-{{ $post->id }}">
                             <div class="card-header">
                                 {{ $post->post_title }}
                             </div>
                             <div class="card-body">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="{{ $post->post_video }}"
-                                        allowfullscreen="allowfullscreen" frameborder="0" autoplay="0"  loading="lazy" controls></iframe>
+                                        allowfullscreen="allowfullscreen" frameborder="0" autoplay="0" 
+                                        controls></iframe>
                                 </div>
 
 
@@ -97,7 +98,7 @@
                     // Send AJAX request
                     $.ajax({
                         url: "{{ url('dashboard/request/delete/') }}/" +
-                        postId, // Update this URL to your delete route
+                            postId, // Update this URL to your delete route
                         type: 'POST',
                         data: {
                             _token: '{{ csrf_token() }}',
@@ -124,6 +125,34 @@
                     });
                 }
             })
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyVideos = [].slice.call(document.querySelectorAll("iframe"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(video) {
+                        if (video.isIntersecting) {
+                            for (var source in video.target.children) {
+                                var videoSource = video.target.children[source];
+                                if (typeof videoSource.tagName === "string" && videoSource
+                                    .tagName === "IFRAME") {
+                                    videoSource.src = videoSource.dataset.src;
+                                }
+                            }
+                            video.target.load();
+                            lazyVideoObserver.unobserve(video.target);
+                        }
+                    });
+                });
+
+                lazyVideos.forEach(function(lazyVideo) {
+                    lazyVideoObserver.observe(lazyVideo);
+                });
+            }
         });
     </script>
 @endsection
