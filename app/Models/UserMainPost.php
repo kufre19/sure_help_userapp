@@ -10,4 +10,6 @@ class UserMainPost extends Model
     use HasFactory;
 
     protected $table = "users_main_posts";
+    public $timestamps = false;
+
 }
