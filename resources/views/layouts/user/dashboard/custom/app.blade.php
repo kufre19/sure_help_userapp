@@ -69,6 +69,8 @@
     @include('layouts.user.dashboard.custom.js_scripts')
     @yield('extraJS')
 
+    
+
 </body>
 
 </html>

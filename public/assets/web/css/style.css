@@ -986,6 +986,16 @@ footer .copy-right p a {
   transform: scale(0.9);
 }
 
+#disapear-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  margin: 0;
+}
+
+
 
 
 /*# sourceMappingURL=style.css.map */

@@ -21,3 +21,13 @@
 
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
 cb=googleTranslateElementInit"></script>
+
+
+<script>
+    $(document).ready(function() {
+        // Trigger the alert to show for 3 seconds
+        $("#disapear-alert").fadeTo(2000, 500).slideUp(500, function() {
+            $("#disapear-alert").slideUp(500);
+        });
+    });
+</script>

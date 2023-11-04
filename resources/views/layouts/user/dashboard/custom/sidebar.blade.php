@@ -3,12 +3,14 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/dashboard')}}">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon ">
             {{-- <i class="fas fa-laugh-wink"></i>
              --}}
+
+             <img src="{{ asset('assets/web/images/logo.png') }}" width="30%" alt="">
              
         </div>
-        <div class="sidebar-brand-text mx-3">{{ env('APP_NAME') }} <sup>{{Auth::user()->fullname}}</sup></div>
+        {{-- <div class="sidebar-brand-text mx-3"> {{ env('APP_NAME') }}</div> --}}
     </a>
 
     <!-- Divider -->
