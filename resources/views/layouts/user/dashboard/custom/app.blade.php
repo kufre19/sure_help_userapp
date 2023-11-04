@@ -63,7 +63,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    @include('layouts.user.dashboard.custom.modals')
+    {{-- @include('layouts.user.dashboard.custom.modals') --}}
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -73,7 +73,6 @@
 
 
     @include('layouts.user.dashboard.custom.js_scripts')
-    @include('user.dashboard.alerts.sweet-alert')
 
     @yield('extraJS')
 
