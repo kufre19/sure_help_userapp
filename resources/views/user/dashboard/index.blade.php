@@ -33,7 +33,7 @@
             @if ($posts != null)
                 @foreach ($posts as $post)
                     <div class="col-lg-4 mb-4">
-                        <div class="card">
+                        <div class="card"  id="post-card-{{ $post->id }}">
                             <div class="card-header">
                                 {{ $post->post_title }}
                             </div>
@@ -82,6 +82,8 @@
     <script>
         $(document).on('click', '.delete-post', function() {
             var postId = $(this).data('id');
+            var parentCard = $('#post-card-' + postId);
+
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -108,7 +110,7 @@
                                 'success'
                             )
                             // Remove the card element
-                            $('#card-' + postId).fadeOut(500, function() {
+                            parentCard.fadeOut(500, function() {
                                 $(this).remove();
                             });
                         },
