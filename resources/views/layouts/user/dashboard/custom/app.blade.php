@@ -27,6 +27,8 @@
 </head>
 
 <body id="page-top">
+      {{-- load all alerts --}}
+      @include('user.dashboard.alerts.all')
 
     <!-- Page Wrapper -->
     <div id="wrapper">
