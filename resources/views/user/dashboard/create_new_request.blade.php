@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFile">Upload Your Video</label>
-                        <input type="file" name="help_video" class="form-control-file" id="exampleFile" accept="video/*">
+                        <input type="file" capture="user" name="help_video" class="form-control-file" id="exampleFile" accept="video/*">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
