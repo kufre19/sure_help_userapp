@@ -374,17 +374,12 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="team-card">
                                 <div class="image-team">
-                                    <img src="{{ asset('assets/web/images/team/1.jpg')}}">
+                                    <img src="{{$testimonial->imageurl}}">
                                 </div>
                                 <div class="team-content">
-                                    <h3>John</h3>
-                                    <p>Web Developer</p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
+                                    <h3>{{$testimonial->written_by}}</h3>
+                                    <p>{{$testimonial->shortdesc}}</p>
+                                    
                                 </div>
                             </div>
                         </div>
