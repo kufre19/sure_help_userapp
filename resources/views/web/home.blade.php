@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/web/images/slider/3.jpg')}}" class="d-block" alt="...">
+                <img src="{{ asset('assets/web/images/slider/3.jpg') }}" class="d-block" alt="...">
                 <div class="carousel-caption">
                     <h2>Best Education For Diploma</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui perspiciatis, eveniet sequi labore vel
@@ -360,34 +360,33 @@
                 <div class="col-12">
                     <div class="heading">
                         <h2>Testimonials</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime totam quo, ducimus aliquid
-                            quisquam
-                            minima perspiciatis repellendus, minus tenetur reiciendis quis? Consequatur perferendis
-                            deleniti, rerum
-                            delectus consectetur modi praesentium deserunt.</p>
+                        <p>Discover our reach in the past years! Below are genuine testimonials from individuals
+                             who have benifited from our programme the quality, reliability, and excellence we're committed
+                            to delivering. Each review reflects our programm</p>
+
                     </div>
                 </div>
 
                 <div class="col-12">
                     <div class="row">
                         @foreach ($testimonials as $testimonial)
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="{{$testimonial->imageurl}}">
-                                </div>
-                                <div class="team-content">
-                                    <h3>{{$testimonial->written_by}}</h3>
-                                    <p>{{$testimonial->shortdesc}}</p>
-                                    
-                                    
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="team-card">
+                                    <div class="image-team">
+                                        <img src="{{ $testimonial->imageurl }}">
+                                    </div>
+                                    <div class="team-content">
+                                        <h3>{{ $testimonial->written_by }}</h3>
+                                        <p>{{ $testimonial->shortdesc }}</p>
+
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-                      
 
-                      
+
+
                     </div>
                 </div>
             </div>
@@ -396,7 +395,7 @@
 
     <!-- ====================== Blog Section started====================== -->
 
-    <section class="bg-04">
+    {{-- <section class="bg-04">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -427,7 +426,8 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <article class="_lk_bg_sd_we">
-                        <div class="_bv_xs_we" style="background:url({{ asset('assets/web/images/blog/blog_1.jpg')}}"></div>
+                        <div class="_bv_xs_we" style="background:url({{ asset('assets/web/images/blog/blog_1.jpg') }}">
+                        </div>
                         <div class="_xs_we_er">
                             <div class="_he_w">
                                 <h3>Become A Volounteer</h3>
@@ -460,11 +460,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
-   
+
 
 
 @endsection
