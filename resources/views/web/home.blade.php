@@ -380,6 +380,7 @@
                                     <h3>{{$testimonial->written_by}}</h3>
                                     <p>{{$testimonial->shortdesc}}</p>
                                     
+                                    
                                 </div>
                             </div>
                         </div>
