@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UsersMainTestimonial;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
     public function home()
     {
-        
-        return view("web.home");
+        $testimonials = UsersMainTestimonial::latest()->take(4)->get();
+        return view("web.home",compact("testimonials"));
     }
 
     public function about()

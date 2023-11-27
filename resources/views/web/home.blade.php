@@ -370,6 +370,7 @@
 
                 <div class="col-12">
                     <div class="row">
+                        @foreach ($testimonials as $testimonial)
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="team-card">
                                 <div class="image-team">
@@ -387,60 +388,10 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                      
 
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="{{ asset('assets/web/images/team/2.jpg')}}">
-                                </div>
-                                <div class="team-content">
-                                    <h3>Anderson john</h3>
-                                    <p>Web Designer</p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="{{ asset('assets/web/images/team/3.jpg')}}">
-                                </div>
-                                <div class="team-content">
-                                    <h3>Sarah Se</h3>
-                                    <p>Web Designer</p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="{{ asset('assets/web/assets/images/team/4.jpg')}}">
-                                </div>
-                                <div class="team-content">
-                                    <h3>Williams</h3>
-                                    <p>English </p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
