@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FreeStore;
 use App\Http\Controllers\SponsorDashboardController;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
