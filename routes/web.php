@@ -35,7 +35,21 @@ Route::post("register", [\App\Http\Controllers\UserController::class, "register"
 Route::post("sponsor/register", [\App\Http\Controllers\UserController::class, "sponsorRegister"]);
 
 
+Route::get("info", function()
+{
+    return phpinfo();
+});
 
+Route::get('/upload', function () {
+    return view('upload');
+});
+
+Route::post('/upload', function (Request $request) {
+    $image = $request->file('image');
+    $targetDir =public_path("uploads");
+    $image->move($targetDir, $image->getClientOriginalName());
+    return back()->with('success', 'File has been uploaded.');
+});
 
 
 
