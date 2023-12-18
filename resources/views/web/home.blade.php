@@ -7,7 +7,7 @@
 
     <!-- ======================slider section started====================== -->
 
-    <section id="carouselExampleFade" class="carousel slide carousel-fade slider" data-ride="carousel">
+    <section id="carouselExampleFade" class="carousel slide carousel-slide slider" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{ asset('assets/web/images/slider/4.jpg') }}" class="d-block" alt="...">
