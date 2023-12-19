@@ -315,39 +315,24 @@
     </section> --}}
 
     <section class="bg-03">
+        <!-- New Div with Two Columns -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                    <div class="_lk_bg_cd">
-                        <i class="fal fa-school"></i>
-                        <div class="counting" data-count="128">128</div>
-                        <h5>Primary Schools</h5>
-                    </div>
+                <!-- Video Column -->
+                <div class="col-md-6">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/PSyKhFwEo7c" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                    <div class="_lk_bg_cd">
-                        <i class="fal fa-hospitals"></i>
-                        <div class="counting" data-count="300">300</div>
-                        <h5>Hospitals</h5>
-                    </div>
+                <!-- Description Column with Custom Styles -->
+                <div class="col-md-6" style=" padding: 10px;">
+                    <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                        Here you can add a description about the video. This text is now larger and has a shadow to make it
+                        stand out more against the background.
+                    </p>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                    <div class="_lk_bg_cd">
-                        <i class="fal fa-hands-helping"></i>
-                        <div class="counting" data-count="250">250</div>
-                        <h5>Volunteers</h5>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                    <div class="_lk_bg_cd">
-                        <i class="fal fa-trophy"></i>
-                        <div class="counting" data-count="400">400</div>
-                        <h5>Winning Awards</h5>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -361,7 +346,7 @@
                     <div class="heading">
                         <h2>Testimonials</h2>
                         <p>Discover our reach in the past years! Below are genuine testimonials from individuals
-                             who have benifited from our programme the quality, reliability, and excellence we're committed
+                            who have benifited from our programme the quality, reliability, and excellence we're committed
                             to delivering. Each review reflects our programm</p>
 
                     </div>
