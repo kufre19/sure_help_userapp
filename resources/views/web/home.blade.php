@@ -328,8 +328,7 @@
                 <!-- Description Column with Custom Styles -->
                 <div class="col-md-6" style=" padding: 10px;">
                     <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-                        Here you can add a description about the video. This text is now larger and has a shadow to make it
-                        stand out more against the background.
+                        Description/message will go here
                     </p>
                 </div>
 
