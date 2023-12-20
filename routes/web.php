@@ -27,6 +27,11 @@ Route::get('contact', [App\Http\Controllers\WebController::class, "contact"]);
 Route::get("store", [\App\Http\Controllers\FreeStore::class, "index"]);
 
 
+Route::get('/create-storage-link', function () {
+    Artisan::call('storage:link');
+    return 'The symbolic link has been created.';
+});
+
 Route::get("login", [\App\Http\Controllers\UserController::class, "loginPage"])->name("login");
 Route::get("logout", [\App\Http\Controllers\UserController::class, "logout"])->name("logout");
 Route::get("register", [\App\Http\Controllers\UserController::class, "registerPage"]);
@@ -36,14 +41,6 @@ Route::post("register", [\App\Http\Controllers\UserController::class, "register"
 Route::post("sponsor/register", [\App\Http\Controllers\UserController::class, "sponsorRegister"]);
 
 
-Route::get("info", function()
-{
-    return phpinfo();
-});
-
-Route::get('/upload', function () {
-    return view('upload');
-});
 
 Route::post('/upload', function (Request $request) {
     $image = $request->file('image');
