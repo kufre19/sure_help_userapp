@@ -99,6 +99,34 @@ class DashboardController extends Controller
         }
     }
 
+    public function changePassword(Request $request)
+    {
+        // Validate the request for password change
+        $request->validate([
+            'old-password' => 'required',
+            'new-password' => 'required|string|min:8|confirmed',
+        ]);
+
+        try {
+            $user = Auth::user();
+
+            // Check if the old password matches
+            if (!Hash::check($request->input('old-password'), $user->password)) {
+                return redirect()->back()->with('error', 'The current password does not match.');
+            }
+
+            // Update the password
+            $user->password = Hash::make($request->input('new-password'));
+            $user->save();
+
+            // Redirect with success message
+            return redirect()->back()->with('success', 'Password changed successfully.');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred while changing the password.');
+        }
+    }
+
 
 
     public function createRequest(Request $request)

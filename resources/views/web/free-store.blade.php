@@ -83,7 +83,7 @@
                     success: function(response) {
                         Swal.fire({
                             title: response.status === 'success' ? 'Success!' :
-                                'Error!',
+                                response.status,
                             text: response.message,
                             icon: response.status,
                             timer: 3000,

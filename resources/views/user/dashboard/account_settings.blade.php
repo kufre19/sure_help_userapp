@@ -40,18 +40,18 @@
                            
                             <div class="form-group">
                                 <label for="exampleTextField">Change Your Address</label>
-                                <input type="text" name="address" class="form-control" id="exampleTextField" placeholder="Enter Your Address">
+                                <input type="text" name="address" class="form-control" id="exampleTextField" value="{{Auth::user()->address}}" placeholder="Enter Your Address">
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextField1">Change Your Zip Code</label>
-                                <input type="text" name="zipcode" class="form-control" id="exampleTextField1" placeholder="Enter Your Zip Code">
+                                <input type="text" name="zipcode" class="form-control" id="exampleTextField1"  value="{{Auth::user()->zip_code}}" placeholder="Enter Your Zip Code">
 
                                
                             </div>
                             
                             <div class="form-group">
                                 <label for="exampleFile">Change Profile Pooto</label>
-                                <input type="file" capture="environment" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
+                                <input type="file" capture="user" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
                             </div>
                            
                             <button type="submit" class="btn btn-primary">Update</button>

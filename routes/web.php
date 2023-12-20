@@ -115,6 +115,9 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
     Route::get("account/settings", [SponsorDashboardController::class,"accountSettingsPage"]);
     Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
 
+    Route::post("account/settings/change-password", [App\Http\Controllers\DashboardController::class, "changePassword"]);
+
+
 });
 // SPONSOR USER URL ENDS HERE
 
