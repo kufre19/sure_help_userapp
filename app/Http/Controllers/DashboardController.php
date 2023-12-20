@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use App\Models\UserMainPost;
 use App\Models\UsersMainPost;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -56,8 +58,45 @@ class DashboardController extends Controller
     }
 
 
-    public function accountSettingsUpdate()
+    public function accountSettingsUpdate(Request $request)
     {
+        // Validate the request
+        $request->validate([
+            'address' => 'required|string|max:255',
+            'zipcode' => 'required|string|max:10',
+            'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
+        ]);
+    
+        try {
+            // Get the authenticated user
+            $user = Auth::user();
+    
+            // Update address and zip code
+            $user->address = $request->address;
+            $user->zipcode = $request->zipcode;
+    
+            // Check if a new profile photo is uploaded
+            if ($request->hasFile('profile_photo')) {
+                // Delete old photo if exists
+                if ($user->profile_photo && Storage::exists($user->profile_photo)) {
+                    Storage::delete($user->profile_photo);
+                }
+    
+                // Store new photo
+                $path = $request->file('profile_photo')->store('profile_photos', 'public');
+                $user->profile_photo = $path;
+            }
+    
+            // Save changes
+            $user->save();
+    
+            // Redirect with success message
+            return redirect()->back()->with('success', 'Account settings updated successfully.');
+    
+        } catch (\Exception $e) {
+            // Redirect with error message
+            return redirect()->back()->with('error', 'An error occurred while updating account settings.');
+        }
     }
 
 

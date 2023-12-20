@@ -51,7 +51,7 @@
                             
                             <div class="form-group">
                                 <label for="exampleFile">Change Profile Pooto</label>
-                                <input type="file" capture="user" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
+                                <input type="file" capture="environment" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
                             </div>
                            
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -114,4 +114,20 @@
 
 
 @section('extraJS')
+    <script>
+        // Check for session messages
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ session('success') }}',
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+            });
+        @endif
+    </script>
 @endsection
