@@ -45,8 +45,9 @@
                                 <a href="" class="text-reset ">
                                     <p>{{ $wish->wishedItem->item_category }}</p>
                                 </a>
-                                <a href="{{ url('dashboard/wishlist/remove') . '/' . $wish->id }}"><i
-                                        class="fa fa-trash"></i>remove from list</a>
+                                <a href="javascript:void(0)" class="remove-from-wishlist" data-wish-id="{{ $wish->id }}">
+                                    <i class="fa fa-trash"></i>remove from list
+                                </a>
                             </div>
                             @if ($wish->admin_comment != null)
                                 <div class="card-footer">
@@ -76,4 +77,32 @@
 
 
 @section('extraJS')
+<script>
+    $(document).ready(function() {
+        $('.remove-from-wishlist').click(function(e) {
+            var wishId = $(this).data('wish-id');
+            $.ajax({
+                url: '{{ url("dashboard/wishlist/remove") }}/' + wishId,
+                type: 'GET',
+                success: function(response) {
+                    Swal.fire(
+                        'Removed!',
+                        'Item has been removed from your wishlist.',
+                        'success'
+                    );
+                    // Remove the item from the UI
+                    $('a[data-wish-id="' + wishId + '"]').closest('.col-lg-4').remove();
+                },
+                error: function(error) {
+                    Swal.fire(
+                        'Error!',
+                        'An error occurred while removing the item.',
+                        'error'
+                    );
+                }
+            });
+        });
+    });
+</script>
 @endsection
+
