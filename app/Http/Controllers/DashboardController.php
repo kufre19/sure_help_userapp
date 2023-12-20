@@ -62,8 +62,8 @@ class DashboardController extends Controller
     {
         // Validate the request
         $request->validate([
-            'address' => 'required|string|max:255',
-            'zipcode' => 'required|string|max:10',
+            'address' => 'string|max:255',
+            'zipcode' => 'string|max:10',
             'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
         ]);
     
