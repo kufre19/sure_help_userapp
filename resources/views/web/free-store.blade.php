@@ -78,6 +78,8 @@
                 var itemId = $(this).data('item-id');
                 $.ajax({
                     // ... existing AJAX setup ...
+                    url: '{{ url('dashboard/wishlist/add/item') }}/' + itemId,
+                    type: 'GET',
                     success: function(response) {
                         Swal.fire({
                             title: response.status === 'success' ? 'Success!' :

@@ -20,7 +20,7 @@ class FreeStore extends Controller
     public function wishlist_add($id)
     {
         if (FreeShop::find($id) == null) {
-            return redirect()->back();
+            return response()->json(['status' => 'error','message' => "Item not found!"]);
         }
 
         $wishlist_model = new Wishlist();
