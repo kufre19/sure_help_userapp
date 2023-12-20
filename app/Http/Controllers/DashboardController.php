@@ -73,7 +73,7 @@ class DashboardController extends Controller
     
             // Update address and zip code
             $user->address = $request->address;
-            $user->zipcode = $request->zipcode;
+            $user->zip_code = $request->zipcode;
     
             // Check if a new profile photo is uploaded
             if ($request->hasFile('profile_photo')) {
@@ -95,6 +95,7 @@ class DashboardController extends Controller
     
         } catch (\Exception $e) {
             // Redirect with error message
+            info($e);
             return redirect()->back()->with('error', 'An error occurred while updating account settings.');
         }
     }
