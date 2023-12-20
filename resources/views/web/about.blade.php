@@ -36,6 +36,7 @@
                     <div class="_Ol_er_qw yu">
                         <img src="{{ asset('assets/web/images/team/11.jpg')}}">
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -43,7 +44,7 @@
 
     <!-- ====================== section started====================== -->
 
-    <section class="bg-03">
+    {{-- <section class="bg-03">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
@@ -79,7 +80,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- ====================== Team Started started====================== -->
 
@@ -87,62 +88,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="heading">
+                    {{-- <div class="heading">
                         <h2>OUR TEAM</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime totam quo, ducimus aliquid
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime totam quo, ducimus aliquid
                             quisquam
                             minima perspiciatis repellendus, minus tenetur reiciendis quis? Consequatur perferendis
                             deleniti, rerum
-                            delectus consectetur modi praesentium deserunt.</p>
-                    </div>
+                            delectus consectetur modi praesentium deserunt.
+                        </p>
+                    </div> --}}
                 </div>
 
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="assets/images/team/1.jpg">
-                                </div>
-                                <div class="team-content">
-                                    <h3>John</h3>
-                                    <p>Web Developer</p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="team-card">
-                                <div class="image-team">
-                                    <img src="assets/images/team/2.jpg">
-                                </div>
-                                <div class="team-content">
-                                    <h3>Anderson john</h3>
-                                    <p>Web Designer</p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class=" team-card">
                                 <div class="image-team">
-                                    <img src="assets/images/team/3.jpg">
+                                    <img src="{{ asset('assets/web/images/team/13.jpg')}}">
                                 </div>
                                 <div class="team-content">
-                                    <h3>Sarah Se</h3>
-                                    <p>Web Designer</p>
+                                    <h3>Mrs Edith Praise</h3>
+                                    <p>Co-Founder</p>
+                                    <ol>
+                                        <li><i class="fab fa-facebook-f"></i></li>
+                                        <li><i class="fab fa-instagram"></i></li>
+                                        <li><i class="fab fa-linkedin-in"></i></li>
+                                        <li><i class="fab fa-pinterest-p"></i></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="team-card">
+                                <div class="image-team">
+                                    <img src="{{ asset('assets/web/images/team/12.jpg')}}">
+                                </div>
+                                <div class="team-content">
+                                    <h3>Eric Bouli</h3>
+                                    <p>Project Supervisor</p>
                                     <ol>
                                         <li><i class="fab fa-facebook-f"></i></li>
                                         <li><i class="fab fa-instagram"></i></li>
@@ -153,23 +139,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"">
-                            <div class=" team-card">
-                                <div class="image-team">
-                                    <img src="assets/images/team/4.jpg">
-                                </div>
-                                <div class="team-content">
-                                    <h3>Williams</h3>
-                                    <p>English </p>
-                                    <ol>
-                                        <li><i class="fab fa-facebook-f"></i></li>
-                                        <li><i class="fab fa-instagram"></i></li>
-                                        <li><i class="fab fa-linkedin-in"></i></li>
-                                        <li><i class="fab fa-pinterest-p"></i></li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
+                        
+
+                        
                     </div>
                 </div>
             </div>
