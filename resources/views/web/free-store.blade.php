@@ -46,8 +46,9 @@
                                     <a href="" class="text-reset ">
                                         <p>{{ $item->item_category }}</p>
                                     </a>
-                                    <a href="{{ url('dashboard/wishlist/add/item') . '/' . $item->id }}"><i
-                                            class="fa fa-heart"></i>Add to wish list</a>
+                                    <a href="javascript:void(0)" class="add-to-wishlist"
+                                        data-item-id="{{ $item->id }}"><i class="fa fa-heart"></i>Add to wish list</a>
+
                                 </div>
 
                             </div>
@@ -62,13 +63,53 @@
             <div class="row">
                 <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
                     <ul class="pagination">
-                        {{$items->links()}}
-    
+                        {{ $items->links() }}
+
                     </ul>
                 </nav>
             </div>
         </div>
     </section>
+
+@section('extra-js')
+    <script>
+        $(document).ready(function() {
+            $('.add-to-wishlist').click(function(e) {
+                var itemId = $(this).data('item-id');
+                $.ajax({
+                    // ... existing AJAX setup ...
+                    success: function(response) {
+                        Swal.fire({
+                            title: response.status === 'success' ? 'Success!' :
+                                'Error!',
+                            text: response.message,
+                            icon: response.status,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            toast: true,
+                            showConfirmButton: false,
+                            padding: '1em'
+                        });
+                    },
+                    error: function(error) {
+                        // You can extract error message from error response if your backend sends it
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'An error occurred while adding to wishlist.',
+                            icon: 'error',
+                            timer: 3000,
+                            timerProgressBar: true,
+                            toast: true,
+                            showConfirmButton: false,
+                            padding: '1em'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+@endsection
+
 
 
 @endsection

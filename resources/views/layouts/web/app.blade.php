@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('assets/web/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/web/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
 </head>
 
 <body>

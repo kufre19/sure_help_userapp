@@ -28,14 +28,14 @@ class FreeStore extends Controller
         $wish = $wishlist_model->where("item_id", $id)->where("user_id", $user_id)->first();
 
         if ($wish) {
-            return redirect()->back();
+            return response()->json(['status' => 'warning','message' => "Item Added Already!"]);
         }
 
         $wishlist_model->user_id = $user_id;
         $wishlist_model->item_id = $id;
         $wishlist_model->wish_status = "pending";
         $wishlist_model->save();
-        return redirect()->back()->with("success", "item added to wish list!");
+        return response()->json(['status' => 'success', 'message' => "Item added to your wish list!"]);
     }
 
     public function wishlist_remove($id)
@@ -43,10 +43,10 @@ class FreeStore extends Controller
         $wishlist_model = new Wishlist();
         $wish = Wishlist::find($id);
         if (!$wish) {
-            return redirect()->back();
+            return response()->json(["warning","Item not found!"]);
         } else {
             $wish->delete();
-            return redirect()->back()->with("danger", "item removed from wish list!");
+            return response()->json(['status' => 'success','message' => "Item has been removed from wishlist!"]);
         }
     }
 }
