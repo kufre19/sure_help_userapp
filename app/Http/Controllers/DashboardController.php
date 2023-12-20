@@ -82,9 +82,14 @@ class DashboardController extends Controller
                     Storage::delete($user->profile_photo);
                 }
     
-                // Store new photo
+               // Store new photo
                 $path = $request->file('profile_photo')->store('profile_photos', 'public');
-                $user->profile_photo = $path;
+
+                // Convert path to URL
+                $url = Storage::url($path);
+
+                // Save URL to the user's profile photo field
+                $user->profile_photo = $url;
             }
     
             // Save changes
