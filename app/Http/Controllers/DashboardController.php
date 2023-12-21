@@ -66,6 +66,8 @@ class DashboardController extends Controller
             'zipcode' => 'string|max:10',
             'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
         ]);
+        info("seetings");
+
     
         try {
             // Get the authenticated user
