@@ -77,6 +77,8 @@ class DashboardController extends Controller
     
             // Check if a new profile photo is uploaded
             if ($request->hasFile('profile_photo')) {
+                info("came for photos");
+
                 // Delete old photo if exists
                 if ($user->profile_photo && Storage::exists($user->profile_photo)) {
                     Storage::delete($user->profile_photo);
@@ -84,9 +86,11 @@ class DashboardController extends Controller
     
                // Store new photo
                 $path = $request->file('profile_photo')->store('profile_photos', 'public');
+                info($path);
 
                 // Convert path to URL
                 $url = Storage::url($path);
+                info($url);
 
                 // Save URL to the user's profile photo field
                 $user->profile_photo = $url;
