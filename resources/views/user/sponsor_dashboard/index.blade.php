@@ -9,6 +9,15 @@
             background-size: cover;
             background-position: center;
         }
+
+        .carousel-image {
+            width: auto;
+            /* Adjust width as needed */
+            max-height: 300px;
+            /* Adjust height as needed */
+            margin: 0 auto;
+            /* Center the image */
+        }
     </style>
 @endsection
 
@@ -42,7 +51,8 @@
                     <div class="carousel-inner">
                         @foreach ($testimonials as $index => $testimonial)
                             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                <img class="d-block w-100" src="{{ $testimonial->imageurl }}" alt="Slide {{ $index }}">
+                                <img class="carousel-image" src="{{ $testimonial->imageurl }}"
+                                    alt="Slide {{ $index }}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>{{ $testimonial->written_by }}</h5>
                                     <p>{{ $testimonial->shortdesc }}</p>
@@ -59,6 +69,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+
 
             </div>
 
@@ -89,7 +100,7 @@
                             <p>Check in later for news feeds</p>
                         </div>
                     @endif
-                   
+
                 </div>
             </div>
         </div>
@@ -122,27 +133,27 @@
 
 
 @section('extraJS')
-<script>
-    $(document).ready(function() {
-        $('#newsModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var newsId = button.data('news-id');
+    <script>
+        $(document).ready(function() {
+            $('#newsModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var newsId = button.data('news-id');
 
-            // AJAX request to fetch news details
-            $.ajax({
-                url: "{{ url('fetch/news/details') }}/" + newsId,
-                type: 'GET',
-                success: function(response) {
-                    // Assuming 'response' contains the news details
-                    var modal = $('#newsModal');
-                    modal.find('.modal-body').html(response.content); // Adjust based on your response structure
-                },
-                error: function() {
-                    alert('Error fetching news details');
-                }
+                // AJAX request to fetch news details
+                $.ajax({
+                    url: "{{ url('fetch/news/details') }}/" + newsId,
+                    type: 'GET',
+                    success: function(response) {
+                        // Assuming 'response' contains the news details
+                        var modal = $('#newsModal');
+                        modal.find('.modal-body').html(response
+                        .content); // Adjust based on your response structure
+                    },
+                    error: function() {
+                        alert('Error fetching news details');
+                    }
+                });
             });
         });
-    });
-</script>
-
+    </script>
 @endsection
