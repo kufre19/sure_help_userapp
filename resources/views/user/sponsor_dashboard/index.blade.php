@@ -44,7 +44,7 @@
             </div>
         @endif
 
-        <div class="row">
+        <div class="row" style="background-color: #25C702;">
             <div class="col-lg-12">
                 <!-- Testimonial Carousel -->
                 <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
