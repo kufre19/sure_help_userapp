@@ -6,6 +6,10 @@ use App\Traits\HandlePosts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use App\Models\UsersSponsorsBroadcast;
+use App\Models\UsersMainTestimonial;
+use App\Models\UsersMainFeed;
+
 
 class SponsorDashboardController extends Controller
 {
@@ -14,10 +18,14 @@ class SponsorDashboardController extends Controller
     
     public function home()
     {
-       
-        $posts = $this->getAllApprovedPost();
-        return view("user.sponsor_dashboard.index",compact("posts"));
+        $broadcasts = UsersSponsorsBroadcast::orderBy('date_created', 'desc')->first();
+        $testimonials = UsersMainTestimonial::orderBy('created_at', 'desc')->take(5)->get();
+        $newsItems = UsersMainFeed::orderBy('date_created', 'desc')->paginate(10);
+    
+        return view('user.sponsor_dashboard.index', compact('broadcasts', 'testimonials', 'newsItems'));
     }
+    
+    
 
     // page to create new request
     public function newRequestPage()
@@ -138,6 +146,12 @@ class SponsorDashboardController extends Controller
     
         // Redirect back with success message
         return back()->with('success', 'Password changed successfully.');
+    }
+
+    public function helpRequests()
+    {
+        $posts = $this->getAllApprovedPost();
+        return view("user.sponsor_dashboard.help_request_posts",compact("posts"));
     }
     
     

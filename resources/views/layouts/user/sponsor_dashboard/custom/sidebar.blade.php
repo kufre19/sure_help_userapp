@@ -29,6 +29,23 @@
           Navigations
       </div>
 
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+            aria-expanded="true" aria-controls="collapseSix">
+            <i class="fas fa-hands-helping"></i>
+            <span>Help Requests Post</span>
+        </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header"> Help Requests section:</h6>
+                <a class="collapse-item" href="{{ url('sponsor/dashboard/help-requests') }}">Posts</a>
+
+            </div>
+        </div>
+    </li>
+
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -39,7 +56,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Feeds section:</h6>
-                  <a class="collapse-item" href="{{ url('sponsor/dashboard/news-feeds') }}">See News Feed</a>
+                  <a class="collapse-item" href="{{ url('sponsor/dashboard/news-feeds') }}"> News Feed</a>
 
               </div>
           </div>
@@ -55,7 +72,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Inbox section:</h6>
-                  <a class="collapse-item" href="{{ url('sponsor/dashboard/inbox/messages') }}">Check Inbox</a>
+                  <a class="collapse-item" href="{{ url('sponsor/dashboard/inbox/messages') }}">My Messages</a>
 
               </div>
           </div>
@@ -64,13 +81,13 @@
       <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
               aria-expanded="true" aria-controls="collapseFour">
-              <i class="fas fa-fw fa-quote-left"></i>
-              <span>Testimonial</span>
+              <i class="fas fa-fw fa-store"></i>
+              <span>Free store</span>
           </a>
           <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Testimonial section:</h6>
-                  <a class="collapse-item" href="{{ url('sponsor/dashboard') }}">See Testimonials</a>
+                  <h6 class="collapse-header">Free store section:</h6>
+                  <a class="collapse-item" href="{{ url('store') }}">Free Store</a>
                
               </div>
           </div>
@@ -81,12 +98,12 @@
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
               aria-expanded="true" aria-controls="collapseFive">
               <i class="fas fa-fw fa-wallet"></i>
-              <span>Payment Methods</span>
+              <span>Donations</span>
           </a>
           <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Payment Methods section:</h6>
-                  <a class="collapse-item" href="{{ url('sponsor/dashboard') }}">Payment Methods</a>
+                  <h6 class="collapse-header"> Donations section:</h6>
+                  <a class="collapse-item" href="{{ url('sponsor/dashboard') }}">Given a Donation</a>
 
               </div>
           </div>

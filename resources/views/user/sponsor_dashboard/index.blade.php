@@ -17,130 +17,132 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Posts</h1>
+        <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
 
     </div>
     <!-- /.container-fluid -->
 
     <div class="container-fluid">
-        <div class="row">
-            @if ($posts != null)
-                @foreach ($posts as $post)
-                    <div class="col-lg-4 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                {{ $post->post_title }}
-                            </div>
-                            <div class="card-body">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="{{ $post->post_video }}"
-                                        allowfullscreen="allowfullscreen" frameborder="0" autoplay="0" controls></iframe>
-                                </div>
-
-
-                                <p>{{ $post->post_description }}</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-success" >Provide Help</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                
-            @else
-            <p>No Help Requested Posted!</p>
-                
-            @endif
-
-            
-
-
-        </div>
-        @if ($posts)
-            <div class="row">
-                <p> {{ $posts->links() }}</p>
+        <!-- Broadcast Card -->
+        @if ($broadcasts)
+            <div class="card mb-4">
+                <div class="card-header">
+                    Broadcast
+                </div>
+                <div class="card-body">
+                    <p>{{ $broadcasts->message }}</p>
+                </div>
             </div>
         @endif
 
-        <div class="modal userModal " id="userModalid" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="userModalLabel">User Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Testimonial Carousel -->
+                <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($testimonials as $index => $testimonial)
+                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                <img class="d-block w-100" src="{{ $testimonial->image }}" alt="Slide {{ $index }}">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>{{ $testimonial->title }}</h5>
+                                    <p>{{ $testimonial->content }}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="modal-body">
-                        <div class="modal-body">
-                            <div class="user-image"></div>
-                            <div class="user-details"></div>
+                    <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <!-- News Feed Card -->
+                <!-- News Feed Card -->
+                <div class="card">
+                    <div class="card-header">
+                        Latest News
+                    </div>
+                    @if ($newsItems)
+                        <div class="card-body">
+                            @foreach ($newsItems as $newsItem)
+                                <div class="news-item mb-4" data-toggle="modal" data-target="#newsModal"
+                                    data-news-id="{{ $newsItem->id }}">
+                                    <h5>{{ $newsItem->title }}</h5>
+                                    <p>{{ Str::limit($newsItem->content, 100) }}</p>
+                                </div>
+                            @endforeach
+                            <!-- Pagination Links -->
+                            {{ $newsItems->links() }}
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button id="closeUserModal" type="button" class="btn btn-secondary">Close</button>
-
-                    </div>
-
-
+                    @else
+                        <div class="card-body">
+                            <p>Check in later for news feeds</p>
+                        </div>
+                    @endif
+                   
                 </div>
             </div>
         </div>
 
 
-
     </div>
+
+
+    {{-- modals start --}}
+    <!-- News Modal -->
+    <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newsModalLabel">News Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- News content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- modals end --}}
 @endsection
 
 
 @section('extraJS')
-    <script>
-        $('#closeModal2').click(function() {
-            $('#exampleModal2').modal('hide');
-        });
-        $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var type = button.data('type') // Extract info from data-* attributes
-            var post_id = button.data('post-id') // Extract info from data-* attributes
+<script>
+    $(document).ready(function() {
+        $('#newsModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var newsId = button.data('news-id');
 
-            var modal = $(this)
-            modal.find('#button-type').val(type)
-            modal.find('#post_id').val(post_id)
-
-        })
-
-        $(document).ready(function() {
-            // Event listener for fetch user button
-            $('.fetch-user').click(function() {
-                var userId = $(this).data('user-id');
-
-                // AJAX request to fetch user data
-                $.ajax({
-                    type: 'GET',
-                    url: "{{ url('dashboard/request/view/user') }}" + "/" + userId,
-                    success: function(user) {
-                        // Show user data in modal popup
-                        $('.user-image').css('background-image', 'url(' + user.imageSrc + ')');
-                        var details_loaded = "Name:" + user.name + '<br>' + "Email:" + user
-                            .email + '<br>' +
-                            "Phone" + user.phone + '<br>' + "Address:" + user.address + '<br>' +
-                            "Country:" + user.country
-                        $('.user-details').html(details_loaded);
-                        $('.userModal').css('display', 'block');
-                    },
-                    error: function() {
-                        alert('Error fetching user data');
-                    }
-                });
+            // AJAX request to fetch news details
+            $.ajax({
+                url: "{{ url('fetch/news/details') }}/" + newsId,
+                type: 'GET',
+                success: function(response) {
+                    // Assuming 'response' contains the news details
+                    var modal = $('#newsModal');
+                    modal.find('.modal-body').html(response.content); // Adjust based on your response structure
+                },
+                error: function() {
+                    alert('Error fetching news details');
+                }
             });
-
-
         });
-        $('#closeUserModal').click(function() {
+    });
+</script>
 
-            $('#userModalid').css('display', 'none');
-        });
-    </script>
 @endsection

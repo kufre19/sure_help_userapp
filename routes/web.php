@@ -104,6 +104,9 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
 Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"], function () {
     Route::get("/", [SponsorDashboardController::class,"home"]);
 
+    Route::get("/help-requests", [SponsorDashboardController::class,"helpRequests"]);
+
+
 
     // request routes
     Route::get("/request/new", [SponsorDashboardController::class,"newRequestPage"]);
