@@ -24,15 +24,34 @@
             filter: brightness(0.2) contrast(5);
         }
 
-        .carousel-caption {
-            color: black;
-        }
+       
 
 
-        .testimonial-author {
+        /* .testimonial-author {
             font-weight: bold;
             text-align: right;
             width: 100%;
+        } */
+
+        .carousel-caption-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black background */
+            padding: 10px;
+        }
+
+        .carousel-caption {
+            color: black;
+            /* Adjust text color for readability */
+            text-align: left;
+            /* Align text to the left */
+        }
+
+        .testimonial-author {
+            font-weight: bold;
         }
     </style>
 @endsection
@@ -60,17 +79,20 @@
             </div>
         @endif
 
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-12">
                 <!-- Testimonial Carousel -->
                 <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         @foreach ($testimonials as $index => $testimonial)
                             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                <img class="carousel-image" src="{{ $testimonial->imageurl }}" alt="Slide {{ $index }}">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <p>{{ $testimonial->shortdesc }}</p>
-                                    <p class="testimonial-author">- {{ $testimonial->written_by }}</p>
+                                <img class="carousel-image" src="{{ $testimonial->imageurl }}"
+                                    alt="Slide {{ $index }}">
+                                <div class="carousel-caption-container">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <p>{{ $testimonial->shortdesc }}</p>
+                                        <p class="testimonial-author">- {{ $testimonial->written_by }}</p>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -84,7 +106,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                
+
 
 
             </div>
