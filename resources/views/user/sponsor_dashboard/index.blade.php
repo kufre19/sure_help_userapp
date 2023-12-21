@@ -46,7 +46,7 @@
         .carousel-caption {
             color: black;
             /* Adjust text color for readability */
-            text-align: left;
+            text-align: right;
             /* Align text to the left */
         }
 
@@ -126,8 +126,8 @@
                             @foreach ($newsItems as $newsItem)
                                 <div class="news-item mb-4" data-toggle="modal" data-target="#newsModal"
                                     data-news-id="{{ $newsItem->id }}">
-                                    <h5>{{ $newsItem->title }}</h5>
-                                    <p>{{ Str::limit($newsItem->content, 100) }}</p>
+                                    <h5>{{ $newsItem->Title }}</h5>
+                                    <p>{{ Str::limit($newsItem->shortdesc, 100) }}</p>
                                 </div>
                             @endforeach
                             <!-- Pagination Links -->
