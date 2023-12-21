@@ -190,6 +190,8 @@
             title: 'Oops...',
             html: `{!! implode('<br>', $errors->all()) !!}`,
         });
+        @endif
+
         // Check for session messages
         @if($errors->any())
         Swal.fire({
