@@ -31,6 +31,17 @@ Route::get('/create-storage-link', function () {
     Artisan::call('storage:link');
     return 'The symbolic link has been created.';
 });
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return 'Cache cleared';
+});
+
+Route::get('/route-cache', function() {
+    Artisan::call('route:cache');
+    return 'Route cache cleared';
+});
+
+// Add more routes as needed
 
 Route::get("login", [\App\Http\Controllers\UserController::class, "loginPage"])->name("login");
 Route::get("logout", [\App\Http\Controllers\UserController::class, "logout"])->name("logout");
