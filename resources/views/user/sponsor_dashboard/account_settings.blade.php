@@ -184,6 +184,12 @@
 
 @section('extraJS')
     <script>
+         @if($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+        });
         // Check for session messages
         @if($errors->any())
         Swal.fire({
