@@ -37,7 +37,7 @@
 
                     <div class="card-header">Personal Info</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('dashboard/account/settings/update') }}"
+                        <form method="POST" action="{{ url('sponsor/dashboard/account/settings/update') }}"
                             enctype="multipart/form-data">
                             @csrf
 
@@ -78,7 +78,7 @@
 
                     <div class="card-header">Change Your Password</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('dashboard/account/settings/change-password') }}"
+                        <form method="POST" action="{{ url('sponsor/dashboard/account/settings/change-password') }}"
                             enctype="multipart/form-data">
                             @csrf
 
@@ -96,7 +96,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextField1">Repeat New Password</label>
-                                <input type="text" name="new-password-repeat" class="form-control" id="exampleTextField1"
+                                <input type="text" name="new-password_confirmation" class="form-control" id="exampleTextField1"
                                     placeholder="Repeat Your New Password" required>
 
 
@@ -114,53 +114,56 @@
             <div class="col-lg-6">
                 <div class="card">
 
+                    @php
+                    $helpOfferings = json_decode(Auth::user()->help_offering, true);
+                    @endphp
                     <div class="card-header">Change Your Help Offer</div>
                     <div class="card-body ">
                         <form method="POST" class="form"
-                            action="{{ url('dashboard/account/settings/change-help-offer') }}"
+                            action="{{ url('sponsor/dashboard/account/settings/change-help-offer') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <h5>Select the help category(s) you want to offer</h5>
                                 <!-- Checkbox -->
                                 <div class="form-group">
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox1" value="Agricultural Help">
+                                               id="inlineCheckbox1" value="Agricultural Help" {{ in_array('Agricultural Help', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox1">Agricultural Help</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox2" value="Counseling Help">
+                                               id="inlineCheckbox2" value="Counseling Help" {{ in_array('Counseling Help', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox2">Counseling Help</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox3" value="Clothing Help">
+                                               id="inlineCheckbox3" value="Clothing Help" {{ in_array('Clothing Help', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox3">Clothing Help</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox4" value="Finacial Help">
+                                               id="inlineCheckbox4" value="Finacial Help" {{ in_array('Finacial Help', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox4">Finacial Help</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox5" value="Medical Help">
+                                               id="inlineCheckbox5" value="Medical Help" {{ in_array('Medical Help', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox5">Medical Help</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox6" value="Food Items">
+                                               id="inlineCheckbox6" value="Food Items" {{ in_array('Food Items', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox6">Food Items</label>
                                     </div>
-                                    <div class=" col-3 form-check form-check-inline">
+                                    <div class="col-3 form-check form-check-inline">
                                         <input class="form-check-input" name="help_offering[]" type="checkbox"
-                                            id="inlineCheckbox7" value="Shelter">
+                                               id="inlineCheckbox7" value="Shelter" {{ in_array('Shelter', $helpOfferings) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="inlineCheckbox7">Shelter</label>
                                     </div>
-
                                 </div>
+                                
 
                             </div>
 
@@ -186,4 +189,28 @@
 
 
 @section('extraJS')
+    <script>
+        // Check for session messages
+        @if($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+        });
+        @endif
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ session('success') }}',
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+            });
+        @endif
+    </script>
 @endsection
+
