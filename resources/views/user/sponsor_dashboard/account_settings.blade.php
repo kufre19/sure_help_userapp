@@ -43,19 +43,19 @@
 
                             <div class="form-group">
                                 <label for="exampleTextField">Change Your Address</label>
-                                <input type="text" name="address" class="form-control" id="exampleTextField"
+                                <input type="text" name="address" class="form-control" value="{{Auth::user()->address}}" id="exampleTextField"
                                     placeholder="Enter Your Address">
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextField1">Change Your Zip Code</label>
-                                <input type="text" name="zipcode" class="form-control" id="exampleTextField1"
+                                <input type="text" name="zipcode" class="form-control" value="{{Auth::user()->zip_code}}" id="exampleTextField1"
                                     placeholder="Enter Your Zip Code">
 
 
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleFile">Change Profile Pooto</label>
+                                <label for="exampleFile">Change Profile Photo</label>
                                 <input type="file" capture="user" name="profile_photo" class="form-control-file" id="exampleFile"
                                     accept="image/*">
                             </div>
@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label for="exampleTextField">Old Password</label>
-                                <input type="text" name="old-password" class="form-control" id="exampleTextField"
+                                <input type="text" name="old-password" class="form-control" value="{{Auth::user()}}" id="exampleTextField"
                                     placeholder="Enter Your Old Password" required>
                             </div>
                             <div class="form-group">

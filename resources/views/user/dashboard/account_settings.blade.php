@@ -50,7 +50,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="exampleFile">Change Profile Pooto</label>
+                                <label for="exampleFile">Change Profile Photo</label>
                                 <input type="file" capture="user" name="profile_photo" class="form-control-file" id="exampleFile" accept="image/*">
                             </div>
                            
