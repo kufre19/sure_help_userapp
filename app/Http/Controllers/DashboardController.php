@@ -77,7 +77,6 @@ class DashboardController extends Controller
     
             // Check if a new profile photo is uploaded
             if ($request->hasFile('profile_photo')) {
-                info("came for photos");
 
                 // Delete old photo if exists
                 if ($user->profile_photo && Storage::exists($user->profile_photo)) {
@@ -86,12 +85,10 @@ class DashboardController extends Controller
     
                // Store new photo
                 $path = $request->file('profile_photo')->store('profile_photos', 'public');
-                info($path);
 
                 // Convert path to URL
-                $url = url(Storage::url($path));
+                $url = url('/public/storage/' . $path);
 
-                info($url);
 
                 // Save URL to the user's profile photo field
                 $user->profile_photo = $url;
@@ -105,7 +102,6 @@ class DashboardController extends Controller
     
         } catch (\Exception $e) {
             // Redirect with error message
-            info($e);
             return redirect()->back()->with('error', 'An error occurred while updating account settings.');
         }
     }
