@@ -24,14 +24,14 @@
             filter: brightness(0.2) contrast(5);
         }
 
-       
+
 
 
         /* .testimonial-author {
-            font-weight: bold;
-            text-align: right;
-            width: 100%;
-        } */
+                font-weight: bold;
+                text-align: right;
+                width: 100%;
+            } */
 
         .carousel-caption-container {
             position: absolute;
@@ -128,6 +128,8 @@
                                     data-news-id="{{ $newsItem->id }}">
                                     <h5>{{ $newsItem->Title }}</h5>
                                     <p>{{ Str::limit($newsItem->shortdesc, 100) }}</p>
+                                    <!-- Optionally, display the image if needed -->
+                                     <img src="{{ $newsItem->imgurl }}" alt="News Image" style="max-width: 100%; height: auto;">
                                 </div>
                             @endforeach
                             <!-- Pagination Links -->
