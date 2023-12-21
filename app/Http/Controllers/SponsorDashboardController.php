@@ -53,7 +53,6 @@ class SponsorDashboardController extends Controller
         // Validate the request
         $request->validate([
             'address' => 'string|max:255',
-            'zipcode' => 'string|max:10',
             'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
         ]);
     
@@ -63,7 +62,6 @@ class SponsorDashboardController extends Controller
     
             // Update address and zip code
             $user->address = $request->address;
-            $user->zip_code = $request->zipcode;
     
             // Check if a new profile photo is uploaded
             if ($request->hasFile('profile_photo')) {
