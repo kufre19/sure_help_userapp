@@ -89,7 +89,8 @@ class DashboardController extends Controller
                 info($path);
 
                 // Convert path to URL
-                $url = Storage::url($path);
+                $url = url(Storage::url($path));
+
                 info($url);
 
                 // Save URL to the user's profile photo field
