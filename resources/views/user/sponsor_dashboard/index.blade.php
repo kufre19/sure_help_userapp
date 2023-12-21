@@ -46,6 +46,10 @@
                         </div>
                     </div>
                 @endforeach
+                
+            @else
+            <p>No Help Requested Posted!</p>
+                
             @endif
 
             

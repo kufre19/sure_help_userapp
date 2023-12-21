@@ -56,7 +56,6 @@ class SponsorDashboardController extends Controller
             'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
         ]);
     
-        info("seetings");
 
         try {
             // Get the authenticated user
@@ -86,7 +85,6 @@ class SponsorDashboardController extends Controller
     
             // Save changes
             $user->save();
-            info("saved");
 
     
             // Redirect with success message
@@ -94,7 +92,6 @@ class SponsorDashboardController extends Controller
     
         } catch (\Exception $e) {
             // Redirect with error message
-            info($e);
             return redirect()->back()->with('error', 'An error occurred while updating account settings.');
         }
     }
