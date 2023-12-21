@@ -18,6 +18,22 @@
             margin: 0 auto;
             /* Center the image */
         }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: brightness(0.2) contrast(5);
+        }
+
+        .carousel-caption {
+            color: black;
+        }
+
+
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            width: 100%;
+        }
     </style>
 @endsection
 
@@ -44,18 +60,17 @@
             </div>
         @endif
 
-        <div class="row" style="background-color: #25C702;">
+        <div class="row" >
             <div class="col-lg-12">
                 <!-- Testimonial Carousel -->
                 <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         @foreach ($testimonials as $index => $testimonial)
                             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                <img class="carousel-image" src="{{ $testimonial->imageurl }}"
-                                    alt="Slide {{ $index }}">
+                                <img class="carousel-image" src="{{ $testimonial->imageurl }}" alt="Slide {{ $index }}">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>{{ $testimonial->written_by }}</h5>
                                     <p>{{ $testimonial->shortdesc }}</p>
+                                    <p class="testimonial-author">- {{ $testimonial->written_by }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -69,6 +84,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                
 
 
             </div>
@@ -147,7 +163,7 @@
                         // Assuming 'response' contains the news details
                         var modal = $('#newsModal');
                         modal.find('.modal-body').html(response
-                        .content); // Adjust based on your response structure
+                            .content); // Adjust based on your response structure
                     },
                     error: function() {
                         alert('Error fetching news details');
