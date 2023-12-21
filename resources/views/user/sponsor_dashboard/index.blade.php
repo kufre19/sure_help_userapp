@@ -42,10 +42,10 @@
                     <div class="carousel-inner">
                         @foreach ($testimonials as $index => $testimonial)
                             <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                <img class="d-block w-100" src="{{ $testimonial->image }}" alt="Slide {{ $index }}">
+                                <img class="d-block w-100" src="{{ $testimonial->imageurl }}" alt="Slide {{ $index }}">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>{{ $testimonial->title }}</h5>
-                                    <p>{{ $testimonial->content }}</p>
+                                    <h5>{{ $testimonial->written_by }}</h5>
+                                    <p>{{ $testimonial->shortdesc }}</p>
                                 </div>
                             </div>
                         @endforeach
