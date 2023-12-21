@@ -28,10 +28,10 @@
 
 
         /* .testimonial-author {
-                font-weight: bold;
-                text-align: right;
-                width: 100%;
-            } */
+                        font-weight: bold;
+                        text-align: right;
+                        width: 100%;
+                    } */
 
         .carousel-caption-container {
             position: absolute;
@@ -53,6 +53,25 @@
         .testimonial-author {
             font-weight: bold;
         }
+
+        .news-item-anchor {
+            text-decoration: none;
+            /* Removes underline from links */
+            color: inherit;
+            /* Inherits text color from parent */
+            display: block;
+            /* Makes the anchor a block element */
+        }
+
+        .news-item-anchor:hover {
+            background-color: #f8f9fa;
+            /* Optional: background color on hover */
+        }
+
+        .news-item {
+            padding: 10px;
+            /* Adds some padding inside each news item */
+        }
     </style>
 @endsection
 
@@ -69,14 +88,17 @@
     <div class="container-fluid">
         <!-- Broadcast Card -->
         @if ($broadcasts)
-            <div class="card mb-4">
-                <div class="card-header">
-                    Broadcast
-                </div>
-                <div class="card-body">
-                    <p>{{ $broadcasts->message }}</p>
-                </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Broadcast - {{ $broadcasts->title }}
             </div>
+            <div class="card-body">
+                <p><strong>Type:</strong> {{ $broadcasts->broadcast_type }}</p>
+                <p><strong>Message:</strong> {{ $broadcasts->message }}</p>
+                <p><strong>Broadcast By:</strong> {{ $broadcasts->broadcast_by }}</p>
+            </div>
+        </div>
+        
         @endif
 
         <div class="row">
@@ -124,12 +146,19 @@
                     @if ($newsItems)
                         <div class="card-body">
                             @foreach ($newsItems as $newsItem)
-                                <div class="news-item mb-4" data-toggle="modal" data-target="#newsModal"
-                                    data-news-id="{{ $newsItem->id }}">
-                                    <h5>{{ $newsItem->Title }}</h5>
-                                    <p>{{ Str::limit($newsItem->shortdesc, 100) }}</p>
-                                    <!-- Optionally, display the image if needed -->
-                                     <img src="{{ $newsItem->imgurl }}" alt="News Image" style="max-width: 100%; height: auto;">
+                                <div class="card-body">
+                                    @foreach ($newsItems as $newsItem)
+                                        <a href="#" class="news-item-anchor" data-toggle="modal"
+                                            data-target="#newsModal" data-news-id="{{ $newsItem->id }}">
+                                            <div class="news-item mb-4">
+                                                <h5>{{ $newsItem->Title }}</h5>
+                                                <p>{{ Str::limit($newsItem->shortdesc, 100) }}</p>
+                                            </div>
+                                        </a>
+                                        <hr> <!-- Separator line -->
+                                    @endforeach
+                                    <!-- Pagination Links -->
+                                    {{ $newsItems->links() }}
                                 </div>
                             @endforeach
                             <!-- Pagination Links -->
