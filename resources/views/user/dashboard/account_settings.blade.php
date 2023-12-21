@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextField1">Repeat New Password</label>
-                                <input type="text" name="new-password-repeat" class="form-control" id="exampleTextField1" placeholder="Repeat Your New Password" required>
+                                <input type="text" name="new-password_confirmation" class="form-control" id="exampleTextField1" placeholder="Repeat Your New Password" required>
 
                                
                             </div>
@@ -116,6 +116,13 @@
 @section('extraJS')
     <script>
         // Check for session messages
+        @if($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+        });
+        @endif
         @if(session('success'))
             Swal.fire({
                 icon: 'success',

@@ -102,6 +102,7 @@ class DashboardController extends Controller
     
         } catch (\Exception $e) {
             // Redirect with error message
+
             return redirect()->back()->with('error', 'An error occurred while updating account settings.');
         }
     }
@@ -109,10 +110,12 @@ class DashboardController extends Controller
     public function changePassword(Request $request)
     {
         // Validate the request for password change
+
         $request->validate([
             'old-password' => 'required',
             'new-password' => 'required|string|min:8|confirmed',
         ]);
+        
 
         try {
             $user = Auth::user();
