@@ -90,7 +90,7 @@ class SponsorDashboardController extends Controller
     
         } catch (\Exception $e) {
             // Redirect with error message
-
+            info($e);
             return redirect()->back()->with('error', 'An error occurred while updating account settings.');
         }
     }
