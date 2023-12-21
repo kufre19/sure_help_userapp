@@ -2,6 +2,8 @@
 <script src="{{ asset('js/custom/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('js/custom/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('js/custom/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
