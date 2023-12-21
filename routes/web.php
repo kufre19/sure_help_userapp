@@ -122,10 +122,10 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
 
     // account settings
     Route::get("account/settings", [SponsorDashboardController::class,"accountSettingsPage"]);
-    Route::post("account/settings/update", [App\Http\Controllers\DashboardController::class,"accountSettingsUpdate"]);
+    Route::post("account/settings/update", [SponsorDashboardController::class,"accountSettingsUpdate"]);
 
-    Route::post("account/settings/change-password", [App\Http\Controllers\DashboardController::class, "changePassword"]);
-    Route::post("account/settings/change-help-offer", [App\Http\Controllers\DashboardController::class, "changeHelpOffer"]);
+    Route::post("account/settings/change-password", [SponsorDashboardController::class, "changePassword"]);
+    Route::post("account/settings/change-help-offer", [SponsorDashboardController::class, "changeHelpOffer"]);
 
 
 });
