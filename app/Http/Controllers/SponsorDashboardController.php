@@ -56,6 +56,8 @@ class SponsorDashboardController extends Controller
             'profile_photo' => 'sometimes|file|image|max:5000', // 5MB Max
         ]);
     
+        info("seetings");
+
         try {
             // Get the authenticated user
             $user = Auth::user();
@@ -84,6 +86,8 @@ class SponsorDashboardController extends Controller
     
             // Save changes
             $user->save();
+            info("saved");
+
     
             // Redirect with success message
             return redirect()->back()->with('success', 'Account settings updated successfully.');
