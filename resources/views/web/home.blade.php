@@ -10,7 +10,7 @@
     <section id="carouselExampleFade" class="carousel slide carousel-slide slider" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('assets/web/images/slider/4.jpg') }}" class="d-block" alt="...">
+                <img src="https://development.surehelp.org/main/banners/01.jpg" class="d-block" alt="...">
                 <div class="carousel-caption">
                     <h2>Best Education For Diploma</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui perspiciatis, eveniet sequi labore vel
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/web/images/slider/5.jpg') }}" class="d-block" alt="...">
+                <img src="https://development.surehelp.org/main/banners/02.jpg" class="d-block" alt="...">
                 <div class="carousel-caption">
                     <h2>Best Education For Diploma</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui perspiciatis, eveniet sequi labore vel
