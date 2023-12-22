@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\UsersSponsorsBroadcast;
 use App\Models\UsersMainTestimonial;
 use App\Models\UsersMainFeed;
+use App\Models\UsersMainApp;
 
 
 class SponsorDashboardController extends Controller
@@ -23,6 +24,15 @@ class SponsorDashboardController extends Controller
         $newsItems = UsersMainFeed::orderBy('date_created', 'desc')->paginate(10);
     
         return view('user.sponsor_dashboard.index', compact('broadcasts', 'testimonials', 'newsItems'));
+    }
+
+    public function ViewPostUSer($id)
+    {
+        $user = UsersMainApp::where("uuid",$id)->first();
+        return response()->json([
+            'user'=>$user
+        ]);
+
     }
     
     

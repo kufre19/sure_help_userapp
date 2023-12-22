@@ -131,6 +131,11 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
     Route::post("account/settings/change-help-offer", [SponsorDashboardController::class, "changeHelpOffer"]);
 
 
+    // Help requests
+    Route::get("request/view/user/{id}", [App\Http\Controllers\SponsorDashboardController::class,"ViewPostUSer"]);
+
+
+
 });
 // SPONSOR USER URL ENDS HERE
 
