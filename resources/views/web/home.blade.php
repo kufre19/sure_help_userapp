@@ -315,27 +315,55 @@
     </section> --}}
 
     <section class="bg-03">
-        <!-- New Div with Two Columns -->
         <div class="container">
-            <div class="row">
-                <!-- Video Column -->
-                <div class="col-md-6">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/PSyKhFwEo7c" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+            <div id="videoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Video Embed Here -->
+                                <iframe width="100%" height="315" src="https://development.surehelp.org/main/banners/03.mp4" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-6" style="padding: 10px;">
+                                <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                                    Description/message for Video 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 2 (Duplicate of Item 1) -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Video Embed Here -->
+                                <iframe width="100%" height="315" src="https://development.surehelp.org/main/banners/04.mp4" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
+                            <div class="col-md-6" style="padding: 10px;">
+                                <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                                    Description/message for Video 2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Description Column with Custom Styles -->
-                <div class="col-md-6" style=" padding: 10px;">
-                    <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-                        Description/message will go here
-                    </p>
-                </div>
-
+                <a class="carousel-control-prev" href="#videoCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </section>
-
+    
+    
     <!-- ====================== Team Started started====================== -->
 
     <section class="team">
