@@ -58,16 +58,9 @@ class SponsorDashboardController extends Controller
         return response()->json(['message' => $message->message]);
     }
 
-    public function readMessage($id=null)
-    {
-        return view("user.dashboard.view_message");
-    }
+   
 
-    public function UserWishList()
-    {
-        return view("user.dashboard.wish-list");
-        
-    }
+ 
 
     public function accountSettingsPage()
     {

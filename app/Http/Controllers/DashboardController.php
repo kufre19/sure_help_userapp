@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use App\Models\UserMainPost;
 use App\Models\UsersMainPost;
+use App\Models\UserMainInbox;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -37,12 +38,20 @@ class DashboardController extends Controller
 
     public function listMessages()
     {
-        return view("user.dashboard.inbox");
+        $inboxMessages = UserMainInbox::where('sender', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(10); // Adjust the pagination as per your need
+
+
+        return view("user.dashboard.inbox",compact('inboxMessages'));
     }
 
-    public function readMessage($id = null)
+   
+    public function getMessage($id)
     {
-        return view("user.dashboard.view_message");
+        $message = UserMainInbox::find($id);
+        // Return the message content, for example, as JSON
+        return response()->json(['message' => $message->message]);
     }
 
     public function UserWishList()
