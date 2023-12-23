@@ -133,6 +133,9 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
 
     // Help requests
     Route::get("request/view/user/{id}", [App\Http\Controllers\SponsorDashboardController::class,"ViewPostUSer"]);
+    // Add this to your web.php or api.php
+    Route::get('/inbox/message/{id}', [App\Http\Controllers\SponsorDashboardController::class, 'getMessage']);
+
 
 
 

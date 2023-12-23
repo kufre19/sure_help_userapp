@@ -10,6 +10,7 @@ use App\Models\UsersSponsorsBroadcast;
 use App\Models\UsersMainTestimonial;
 use App\Models\UsersMainFeed;
 use App\Models\UsersMainApp;
+use App\Models\UserSponsorInbox;
 
 
 class SponsorDashboardController extends Controller
@@ -46,7 +47,19 @@ class SponsorDashboardController extends Controller
 
     public function listMessages()
     {
-        return view("user.dashboard.inbox");
+        $inboxMessages = UserSponsorInbox::where('sender', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(10); // Adjust the pagination as per your need
+
+
+        return view("user.dashboard.inbox",compact('inboxMessages'));
+    }
+
+    public function getMessage($id)
+    {
+        $message = UserSponsorInbox::find($id);
+        // Return the message content, for example, as JSON
+        return response()->json(['message' => $message->message]);
     }
 
     public function readMessage($id=null)

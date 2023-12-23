@@ -55,30 +55,30 @@
                             </div>
                             <!-- /.float-right -->
                         </div>
+                        <!-- ... existing HTML ... -->
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                           
-                                        </td>
-                                        <td class="mailbox-star"></td>
-                                        <td class="mailbox-name"><a href="{{url('dashboard/inbox/message/1')}}">Alexander Pierce</a></td>
-                                        <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to
-                                            this problem...
-                                        </td>
-                                        <td class="mailbox-attachment"></td>
-                                        <td class="mailbox-date">5 mins ago</td>
-                                    </tr>
-                                    
+                                    @foreach ($inboxMessages as $message)
+                                        <tr class="{{ $message->has_read == 'false' ? 'font-weight-bold' : '' }}">
+                                            <td class="mailbox-name">
+                                                <a href="#" class="open-message-modal" data-message-id="{{ $message->id }}">{{ $message->sender }}</a>
+                                            </td>
+                                            <td class="mailbox-subject">{{ Str::limit($message->message, 50) }}</td>
+                                            <td class="mailbox-date">{{ $message->created_at->diffForHumans() }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                            <!-- /.table -->
+                            <!-- Pagination -->
+                            {{ $inboxMessages->links() }}
                         </div>
+                        <!-- ... -->
+
                         <!-- /.mail-box-messages -->
                     </div>
                     <!-- /.card-body -->
-                    
+
                 </div>
             </div>
             <!-- /.card -->
@@ -86,12 +86,51 @@
         </div>
 
 
-
-
-
     </div>
+
+    {{-- modals --}}
+    <!-- Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Message Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Message content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 
 @section('extraJS')
+<script>
+    $(document).ready(function() {
+        $('.open-message-modal').click(function() {
+            var messageId = $(this).data('message-id');
+
+            // AJAX request to fetch message data
+            $.ajax({
+                type: 'GET',
+                url: "{{ url('sponsor/dashboard/inbox/message') }}" + "/" + messageId,
+                success: function(message) {
+                    // Populate the modal with message data
+                    var modal = $('#messageModal');
+                    modal.find('.modal-body').html(message); // Adjust based on your response structure
+                    modal.modal('show');
+                },
+                error: function() {
+                    alert('Error fetching message details');
+                }
+            });
+        });
+    });
+</script>
+
 @endsection
