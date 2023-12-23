@@ -38,11 +38,7 @@ class SponsorDashboardController extends Controller
     
     
 
-    // page to create new request
-    public function newRequestPage()
-    {
-        return view("user.dashboard.create_new_request");
-    }
+  
 
 
     public function listMessages()
@@ -52,7 +48,7 @@ class SponsorDashboardController extends Controller
         ->paginate(10); // Adjust the pagination as per your need
 
 
-        return view("user.dashboard.inbox",compact('inboxMessages'));
+        return view("user.sponsor_dashboard.inbox",compact('inboxMessages'));
     }
 
     public function getMessage($id)
