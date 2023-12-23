@@ -1,4 +1,4 @@
-@extends('layouts.user.dashboard.custom.app')
+@extends('layouts.user.sponsor_dashboard.custom.app')
 @section('extraCss')
 @endsection
 
