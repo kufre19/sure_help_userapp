@@ -116,12 +116,12 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
 
 
     // inbox routes
-    Route::get("inbox/messages", [App\Http\Controllers\DashboardController::class,"listMessages"]);
+    Route::get("inbox/messages", [SponsorDashboardController::class,"listMessages"]);
     // remove the optional later so it won't cause issues in the future
-    Route::get("inbox/message/{id?}", [App\Http\Controllers\DashboardController::class,"readMessage"]);
+    // Route::get("inbox/message/{id?}", [App\Http\Controllers\DashboardController::class,"readMessage"]);
 
     // store routes
-    Route::get("store/wish-list/", [App\Http\Controllers\DashboardController::class,"UserWishList"]);
+    Route::get("store/wish-list/", [SponsorDashboardController::class,"UserWishList"]);
 
     // account settings
     Route::get("account/settings", [SponsorDashboardController::class,"accountSettingsPage"]);
@@ -132,9 +132,9 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
 
 
     // Help requests
-    Route::get("request/view/user/{id}", [App\Http\Controllers\SponsorDashboardController::class,"ViewPostUSer"]);
+    Route::get("request/view/user/{id}", [SponsorDashboardController::class,"ViewPostUSer"]);
     // Add this to your web.php or api.php
-    Route::get('/inbox/message/{id}', [App\Http\Controllers\SponsorDashboardController::class, 'getMessage']);
+    Route::get('/inbox/message/{id}', [SponsorDashboardController::class, 'getMessage']);
 
 
 
