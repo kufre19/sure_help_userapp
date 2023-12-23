@@ -122,7 +122,7 @@
                 success: function(message) {
                     // Populate the modal with message data
                     var modal = $('#messageModal');
-                    modal.find('.modal-body').html(message); // Adjust based on your response structure
+                    modal.find('.modal-body').html(message.message); // Adjust based on your response structure
                     modal.modal('show');
                 },
                 error: function() {
