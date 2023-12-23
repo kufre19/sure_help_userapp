@@ -19,7 +19,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Inbox</h3>
 
-                        <div class="card-tools">
+                        {{-- <div class="card-tools">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Search Messages">
                                 <div class="input-group-append">
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /.card-tools -->
                     </div>
                     <!-- /.card-header -->
@@ -38,10 +38,10 @@
 
 
                             <!-- /.btn-group -->
-                            <button type="button" class="btn btn-default btn-sm">
+                            {{-- <button type="button" class="btn btn-default btn-sm">
                                 <i class="fas fa-sync-alt"></i>
-                            </button>
-                            <div class="float-right">
+                            </button> --}}
+                            {{-- <div class="float-right">
                                 1-50/200
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-sm">
@@ -52,7 +52,7 @@
                                     </button>
                                 </div>
                                 <!-- /.btn-group -->
-                            </div>
+                            </div> --}}
                             <!-- /.float-right -->
                         </div>
                         <!-- ... existing HTML ... -->
