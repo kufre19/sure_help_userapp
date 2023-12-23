@@ -43,7 +43,7 @@ class SponsorDashboardController extends Controller
 
     public function listMessages()
     {
-        $inboxMessages = UserSponsorInbox::where('sender', auth()->user()->id)
+        $inboxMessages = UserSponsorInbox::where('uuid', auth()->user()->uuid)
         ->orderBy('created_at', 'desc')
         ->paginate(10); // Adjust the pagination as per your need
 
