@@ -28,10 +28,10 @@
 
 
         /* .testimonial-author {
-                        font-weight: bold;
-                        text-align: right;
-                        width: 100%;
-                    } */
+                                        font-weight: bold;
+                                        text-align: right;
+                                        width: 100%;
+                                    } */
 
         .carousel-caption-container {
             position: absolute;
@@ -80,25 +80,29 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
-
+        {{-- <h1 class="h3 mb-4 text-gray-800">Dashboard</h1> --}}
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 text-gray-800">Dashboard</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donationMethodModal">
+                Make a Donation
+            </button>
+        </div>
     </div>
     <!-- /.container-fluid -->
 
     <div class="container-fluid">
         <!-- Broadcast Card -->
         @if ($broadcasts)
-        <div class="card mb-4">
-            <div class="card-header">
-                Broadcast - {{ $broadcasts->title }}
+            <div class="card mb-4">
+                <div class="card-header">
+                    Broadcast - {{ $broadcasts->title }}
+                </div>
+                <div class="card-body">
+                    <p><strong>Type:</strong> {{ $broadcasts->broadcast_type }}</p>
+                    <p><strong>Message:</strong> {{ $broadcasts->message }}</p>
+                    <p><strong>Broadcast By:</strong> {{ $broadcasts->broadcast_by }}</p>
+                </div>
             </div>
-            <div class="card-body">
-                <p><strong>Type:</strong> {{ $broadcasts->broadcast_type }}</p>
-                <p><strong>Message:</strong> {{ $broadcasts->message }}</p>
-                <p><strong>Broadcast By:</strong> {{ $broadcasts->broadcast_by }}</p>
-            </div>
-        </div>
-        
         @endif
 
         <div class="row">
@@ -197,6 +201,74 @@
         </div>
     </div>
 
+    <!-- Donation Method Modal -->
+    <div class="modal fade" id="donationMethodModal" tabindex="-1" role="dialog"
+        aria-labelledby="donationMethodModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationMethodModalLabel">Choose Donation Method</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#donationAmountModal">Method 1</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#bankDetailsModal">Method 2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation Amount Modal -->
+    <div class="modal fade" id="donationAmountModal" tabindex="-1" role="dialog"
+        aria-labelledby="donationAmountModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationAmountModalLabel">Enter Donation Amount</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="donationAmountForm">
+                        <div class="form-group">
+                            <label for="donationAmount">Amount</label>
+                            <input type="number" class="form-control" id="donationAmount" name="donationAmount"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bank Details Modal -->
+    <div class="modal fade" id="bankDetailsModal" tabindex="-1" role="dialog" aria-labelledby="bankDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bankDetailsModalLabel">Bank Details for Donation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bank Name: XYZ Bank</p>
+                    <p>Account Number: 1234567890</p>
+                    <!-- Additional bank details here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     {{-- modals end --}}
 @endsection
 
@@ -222,6 +294,15 @@
                         alert('Error fetching news details');
                     }
                 });
+            });
+
+            $('#donationAmountForm').submit(function(e) {
+                e.preventDefault();
+                var amount = $('#donationAmount').val();
+                // Placeholder for submission logic
+                console.log("Donation Amount: " + amount);
+                // Implement your submission logic here
+                $('#donationAmountModal').modal('hide');
             });
         });
     </script>
