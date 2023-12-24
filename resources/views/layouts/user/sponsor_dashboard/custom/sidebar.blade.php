@@ -94,7 +94,7 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
               aria-expanded="true" aria-controls="collapseFive">
               <i class="fas fa-fw fa-wallet"></i>
@@ -107,7 +107,7 @@
 
               </div>
           </div>
-      </li>
+      </li> --}}
 
 
 
