@@ -122,18 +122,14 @@
                                 </select>
                             </div>
                             <!-- Additional fields based on type of help -->
-                            <div class="form-group helpTypeField" id="uploadPdfField">
-                                <label for="uploadPdf">Upload PDF</label>
-                                <input type="file" class="form-control" id="uploadPdf" name="uploadPdf"
-                                    accept="application/pdf">
-                            </div>
-                            <!-- Other fields for video, audio, note, and money -->
-                            <!-- ... -->
+                            <div id="dynamicHelpField"></div>
+
+
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" form="provideHelpForm" class="btn btn-primary">Submit Help</button>
+                        <button type="submit" form="provideHelpForm" class="btn btn-primary">Provide Help</button>
                     </div>
                 </div>
             </div>
@@ -172,7 +168,8 @@
                     url: "{{ url('sponsor/dashboard/request/view/user') }}" + "/" + userId,
                     success: function(resonse) {
                         // Populate User Details Modal with fetched user data
-                        $('.user-image').css('background-image', 'url(' + resonse.user.profile_photo + ')');
+                        $('.user-image').css('background-image', 'url(' + resonse.user
+                            .profile_photo + ')');
                         var details_loaded = "Name:" + resonse.user.fullname + '<br>' +
                             "Email:" + resonse.user.email + '<br>' +
                             "Phone:" + resonse.user.phone + '<br>' +
@@ -200,6 +197,86 @@
             $('#closeUserModal').click(function() {
 
                 $('#userModalid').css('display', 'none');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#helpType').change(function() {
+                var selectedType = $(this).val();
+                var dynamicField = $('#dynamicHelpField');
+
+                dynamicField.empty(); // Clear previous content
+
+                switch (selectedType) {
+                    case 'upload_pdf':
+                        dynamicField.append(
+                            '<input type="file" class="form-control" name="uploadPdf" accept="application/pdf">'
+                            );
+                        break;
+                    case 'record_video':
+                        dynamicField.append(
+                            '<input type="file"  id="startRecordingVideo" capture="user" class="form-control" name="recordedVideo" accept="video/*">'
+                            );
+                        break;
+                    case 'record_audio':
+                        dynamicField.append(
+                            '<input type="file"  id="startRecordingAudio" class="form-control" name="recordedAudio" accept="audio/*">'
+                            );
+                        break;
+                    case 'write_note':
+                        dynamicField.append('<textarea class="form-control" name="note"></textarea>');
+                        break;
+                    case 'send_money':
+                        dynamicField.append(
+                            '<button id="method1" class="btn btn-primary">Method 1</button><button id="method2" class="btn btn-secondary">Method 2</button>'
+                            );
+                        setupMoneyMethodButtons();
+                        break;
+                }
+            });
+
+            function setupMoneyMethodButtons() {
+                $('#method1').click(function() {
+                    $('#dynamicHelpField').html(
+                        '<input type="number" class="form-control" name="donationAmount" placeholder="Enter amount">'
+                        );
+                });
+                $('#method2').click(function() {
+                    $('#dynamicHelpField').html(
+                        '<p>Bank Name: XYZ Bank<br>Account Number: 123456789</p><input type="file" class="form-control" name="paymentReceipt" accept="image/*">'
+                        );
+                });
+            }
+
+            document.getElementById('startRecordingAudio').addEventListener('click', function() {
+                navigator.mediaDevices.getUserMedia({
+                        audio: true,
+                        video: false
+                    })
+                    .then(function(stream) {
+                        // Handle the audio stream
+                        console.log('You are recording audio now...');
+                        // You would use the MediaRecorder API to record the stream
+                    })
+                    .catch(function(err) {
+                        console.error('Error accessing audio:', err);
+                    });
+            });
+
+            document.getElementById('startRecordingVideo').addEventListener('click', function() {
+                navigator.mediaDevices.getUserMedia({
+                        audio: true,
+                        video: true
+                    })
+                    .then(function(stream) {
+                        // Handle the video stream
+                        console.log('You are recording video now...');
+                        // Similar to audio, use MediaRecorder API
+                    })
+                    .catch(function(err) {
+                        console.error('Error accessing video:', err);
+                    });
             });
         });
     </script>
