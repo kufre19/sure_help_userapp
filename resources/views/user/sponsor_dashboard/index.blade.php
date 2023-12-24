@@ -11,8 +11,8 @@
         }
 
         .carousel-image {
-            max-width: 100%;
-            height: auto;
+            max-width: auto%;
+            height: 300px;
             margin: 0 auto;
         }
 
@@ -25,10 +25,10 @@
 
 
         /* .testimonial-author {
-                                                font-weight: bold;
-                                                text-align: right;
-                                                width: 100%;
-                                            } */
+                                                    font-weight: bold;
+                                                    text-align: right;
+                                                    width: 100%;
+                                                } */
 
         .carousel-caption-container {
             position: absolute;
@@ -71,6 +71,12 @@
         }
 
         @media (max-width: 768px) {
+            .carousel-image {
+                max-width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+
             .carousel-caption-container {
                 position: static;
                 /* or 'relative' depending on your layout */
@@ -93,7 +99,7 @@
                 font-size: larger;
                 /* Make the author's name stand out */
             }
-            
+
             .carousel-control-prev-icon,
             .carousel-control-next-icon {
                 width: 45px;
@@ -102,8 +108,6 @@
                 /* Increase the size of the icons */
             }
         }
-
-      
     </style>
 @endsection
 
