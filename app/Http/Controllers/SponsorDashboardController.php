@@ -58,6 +58,13 @@ class SponsorDashboardController extends Controller
         return response()->json(['message' => $message->message]);
     }
 
+    public function getNews($id)
+    {
+        $news = UsersMainFeed::find($id);
+        // Return the message content, for example, as JSON
+        return response()->json(['news' => $news,"news_body"=>$news->news_body]);
+    }
+
    
 
  

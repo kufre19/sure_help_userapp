@@ -103,6 +103,8 @@ Route::group(["middleware" => "auth:userMainApp","prefix"=>"dashboard"], functio
 
 Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"], function () {
     Route::get("/", [SponsorDashboardController::class,"home"]);
+    Route::get('/news/details/{id}', [SponsorDashboardController::class, 'getNews']);
+
 
     Route::get("/help-requests", [SponsorDashboardController::class,"helpRequests"]);
 
@@ -135,6 +137,7 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
     Route::get("request/view/user/{id}", [SponsorDashboardController::class,"ViewPostUSer"]);
     // Add this to your web.php or api.php
     Route::get('/inbox/message/{id}', [SponsorDashboardController::class, 'getMessage']);
+
 
 
 

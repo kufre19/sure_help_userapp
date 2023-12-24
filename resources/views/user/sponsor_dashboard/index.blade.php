@@ -11,12 +11,9 @@
         }
 
         .carousel-image {
-            width: auto;
-            /* Adjust width as needed */
-            max-height: 300px;
-            /* Adjust height as needed */
+            max-width: 100%;
+            height: auto;
             margin: 0 auto;
-            /* Center the image */
         }
 
         .carousel-control-prev-icon,
@@ -28,10 +25,10 @@
 
 
         /* .testimonial-author {
-                                        font-weight: bold;
-                                        text-align: right;
-                                        width: 100%;
-                                    } */
+                                                font-weight: bold;
+                                                text-align: right;
+                                                width: 100%;
+                                            } */
 
         .carousel-caption-container {
             position: absolute;
@@ -72,6 +69,41 @@
             padding: 10px;
             /* Adds some padding inside each news item */
         }
+
+        @media (max-width: 768px) {
+            .carousel-caption-container {
+                position: static;
+                /* or 'relative' depending on your layout */
+                background: rgba(0, 0, 0, 0.7);
+                /* Dark background for legibility */
+            }
+
+            .carousel-caption {
+                color: #fff;
+                /* Light color for the text for legibility */
+                font-size: smaller;
+                /* Adjust the font size */
+                padding: 0.5rem;
+                /* Adjust the padding */
+                text-align: center;
+                /* Center the text */
+            }
+
+            .testimonial-author {
+                font-size: larger;
+                /* Make the author's name stand out */
+            }
+            
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 45px;
+                /* Increase the size of the icons */
+                height: 45px;
+                /* Increase the size of the icons */
+            }
+        }
+
+      
     </style>
 @endsection
 
@@ -282,13 +314,14 @@
 
                 // AJAX request to fetch news details
                 $.ajax({
-                    url: "{{ url('fetch/news/details') }}/" + newsId,
+                    url: "{{ url('sponsor/dashboard/news/details') }}/" + newsId,
                     type: 'GET',
                     success: function(response) {
                         // Assuming 'response' contains the news details
+                        // console.log(response);
                         var modal = $('#newsModal');
                         modal.find('.modal-body').html(response
-                            .content); // Adjust based on your response structure
+                            .news_body); // Adjust based on your response structure
                     },
                     error: function() {
                         alert('Error fetching news details');
