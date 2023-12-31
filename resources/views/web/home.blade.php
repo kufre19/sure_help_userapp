@@ -323,9 +323,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Video Embed Here -->
-                                <iframe width="100%" height="315" src="https://development.surehelp.org/main/banners/03.mp4" frameborder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
+                                <video width="100%" height="315" src="https://development.surehelp.org/main/banners/03.mp4" controls frameborder="0"
+                                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></video>
                             </div>
                             <div class="col-md-6" style="padding: 10px;">
                                 <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
@@ -339,9 +339,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Video Embed Here -->
-                                <iframe width="100%" height="315" src="https://development.surehelp.org/main/banners/04.mp4" frameborder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
+                                <video width="100%"  height="315" src="https://development.surehelp.org/main/banners/04.mp4" controls frameborder="0"
+                                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></video>
                             </div>
                             <div class="col-md-6" style="padding: 10px;">
                                 <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
