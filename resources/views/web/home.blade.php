@@ -498,8 +498,8 @@
         </div>
     </div>
 
-        <!-- Donation Amount Modal -->
-        <div class="modal fade" id="donationAmountModal" tabindex="-1" role="dialog"
+    <!-- Donation Amount Modal -->
+    <div class="modal fade" id="donationAmountModal" tabindex="-1" role="dialog"
         aria-labelledby="donationAmountModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -511,10 +511,23 @@
                 </div>
                 <div class="modal-body">
                     <form id="donationAmountForm">
+                        @csrf
                         <div class="form-group">
                             <label for="donationAmount">Amount</label>
-                            <input type="number" class="form-control" id="donationAmount" name="donationAmount"
+                            <input type="number" class="form-control" id="donationAmount" name="amount"
                                 required>
+
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ auth()->fullname ?? '' }}" required>
+
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="{{ auth()->email ?? '' }}"
+                                name="email" required>
+
+                            <label for="phone">phone</label>
+                            <input type="text" class="form-control" id="phone" value="{{ auth()->phone ?? '' }}"
+                                name="phone">
                         </div>
                         <button type="submit" class="btn btn-primary">Continue with donation</button>
                     </form>
@@ -554,12 +567,54 @@
 
     <script>
         $(document).ready(function() {
-           
+
 
             $('#donation-btn').click(function(e) {
                 e.preventDefault();
-                
+
                 $('#donationMethodModal').modal('show');
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $("#donationAmountForm").submit(function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                // Get form data
+                var formData = $(this).serialize();
+
+                // Submit form using Ajax
+                $.ajax({
+                    type: "POST",
+                    url: "/donation", // Replace with your actual submission route
+                    data: formData,
+                    dataType: "json",
+                    success: function(response) {
+                        // Check if the response has a URL
+                        if (response.url) {
+                            // Redirect to the specified URL
+                            window.location.href = response.url;
+                        } else {
+                            // Handle error with SweetAlert
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Could not process request please try again',
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle Ajax errors with SweetAlert
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.',
+                        });
+                    },
+                });
             });
         });
     </script>

@@ -25,10 +25,10 @@
 
 
         /* .testimonial-author {
-                                                    font-weight: bold;
-                                                    text-align: right;
-                                                    width: 100%;
-                                                } */
+                                                        font-weight: bold;
+                                                        text-align: right;
+                                                        width: 100%;
+                                                    } */
 
         .carousel-caption-container {
             position: absolute;
@@ -340,6 +340,49 @@
                 console.log("Donation Amount: " + amount);
                 // Implement your submission logic here
                 $('#donationAmountModal').modal('hide');
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $("#donationAmountForm").submit(function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                // Get form data
+                var formData = $(this).serialize();
+
+                // Submit form using Ajax
+                $.ajax({
+                    type: "POST",
+                    url: "/donation", // Replace with your actual submission route
+                    data: formData,
+                    dataType: "json",
+                    success: function(response) {
+                        // Check if the response has a URL
+                        if (response.url) {
+                            // Redirect to the specified URL
+                            window.location.href = response.url;
+                        } else {
+                            // Handle error with SweetAlert
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Please try again.',
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle Ajax errors with SweetAlert
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.',
+                        });
+                    },
+                });
             });
         });
     </script>

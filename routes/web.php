@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\FreeStore;
 use App\Http\Controllers\SponsorDashboardController;
+use App\Http\Controllers\WebController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ Route::get('contact', [App\Http\Controllers\WebController::class, "contact"]);
 
 // store route
 Route::get("store", [\App\Http\Controllers\FreeStore::class, "index"]);
-
+Route::post("/donation",[WebController::class,"makeDonation"]);
 
 Route::get('/create-storage-link', function () {
     Artisan::call('storage:link');
