@@ -323,9 +323,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Video Embed Here -->
-                                <video width="100%" height="315" src="https://development.surehelp.org/main/banners/03.mp4" controls frameborder="0"
-                                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></video>
+                                <video width="100%" height="315"
+                                    src="https://development.surehelp.org/main/banners/03.mp4" controls frameborder="0"
+                                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></video>
                             </div>
                             <div class="col-md-6" style="padding: 10px;">
                                 <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
@@ -339,9 +340,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Video Embed Here -->
-                                <video width="100%"  height="315" src="https://development.surehelp.org/main/banners/04.mp4" controls frameborder="0"
-                                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></video>
+                                <video width="100%" height="315"
+                                    src="https://development.surehelp.org/main/banners/04.mp4" controls frameborder="0"
+                                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></video>
                             </div>
                             <div class="col-md-6" style="padding: 10px;">
                                 <p style="font-size: 1.2em; color: #000000; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
@@ -362,8 +364,8 @@
             </div>
         </div>
     </section>
-    
-    
+
+
     <!-- ====================== Team Started started====================== -->
 
     <section class="team">
@@ -475,8 +477,90 @@
     </section> --}}
 
 
+    <!-- Donation Method Modal -->
+    <div class="modal fade" id="donationMethodModal" tabindex="-1" role="dialog"
+        aria-labelledby="donationMethodModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationMethodModalLabel">Choose Donation Method</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#donationAmountModal">Method 1</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#bankDetailsModal">Method 2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Donation Amount Modal -->
+        <div class="modal fade" id="donationAmountModal" tabindex="-1" role="dialog"
+        aria-labelledby="donationAmountModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationAmountModalLabel">Enter Donation Amount</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="donationAmountForm">
+                        <div class="form-group">
+                            <label for="donationAmount">Amount</label>
+                            <input type="number" class="form-control" id="donationAmount" name="donationAmount"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Continue with donation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bank Details Modal -->
+    <div class="modal fade" id="bankDetailsModal" tabindex="-1" role="dialog" aria-labelledby="bankDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bankDetailsModalLabel">Bank Details for Donation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bank Name: XYZ Bank</p>
+                    <p>Account Number: 1234567890</p>
+                    <!-- Additional bank details here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
 
+
+
+@endsection
+
+@section('extra-js')
+
+    <script>
+        $(document).ready(function() {
+           
+
+            $('#donation-btn').click(function(e) {
+                e.preventDefault();
+                
+                $('#donationMethodModal').modal('show');
+            });
+        });
+    </script>
 @endsection

@@ -38,13 +38,15 @@
                     <div class="_kl_de_w">
                         <h3>Quick Links</h3>
                         <ol>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('/')}}">Home</a></li>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('about')}}">About</a></li>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('store')}}">Free Store</a></li>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('login')}}">Login</a></li>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('register')}}">Sign Up</a></li>
-                            <li><i class="far fa-angle-right"></i><a href="{{url('sponsor/register')}}">Become A Sponsor</a></li>
-                            <li class="last"><i class="far fa-angle-right"></i><a href="{{url('contact')}}">Contact Us</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('/') }}">Home</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('about') }}">About</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('store') }}">Free Store</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('login') }}">Login</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('register') }}">Sign Up</a></li>
+                            <li><i class="far fa-angle-right"></i><a href="{{ url('sponsor/register') }}">Become A
+                                    Sponsor</a></li>
+                            <li class="last"><i class="far fa-angle-right"></i><a href="{{ url('contact') }}">Contact
+                                    Us</a></li>
                         </ol>
                     </div>
                 </div>
@@ -76,12 +78,13 @@
             </div>
         </div>
     </footer>
+    <!-- Floating Donate Button -->
+    <a href="#" id="donation-btn"  class="floating-donate-btn">
+        <i class=" fa fa-donate"></i>
+    </a>
 </body>
 
-<!-- Floating Donate Button -->
-<a href="{{ url('/donate') }}" class="floating-donate-btn">
-    <i class=" fa fa-donate"></i>
-</a>
+
 
 <script src="{{ asset('assets/web/js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('assets/web/js/popper.min.js') }}"></script>
