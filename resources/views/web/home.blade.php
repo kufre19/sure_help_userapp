@@ -519,14 +519,14 @@
 
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                value="{{ auth()->fullname ?? '' }}" required>
+                                value="{{  Auth::user()->fullname ?? '' }}" required>
 
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" value="{{ auth()->email ?? '' }}"
+                            <input type="email" class="form-control" id="email" value="{{  Auth::user()->email ?? '' }}"
                                 name="email" required>
 
                             <label for="phone">phone</label>
-                            <input type="text" class="form-control" id="phone" value="{{ auth()->phone ?? '' }}"
+                            <input type="text" class="form-control" id="phone" value="{{  Auth::user()->phone ?? '' }}"
                                 name="phone">
                         </div>
                         <button type="submit" class="btn btn-primary">Continue with donation</button>
