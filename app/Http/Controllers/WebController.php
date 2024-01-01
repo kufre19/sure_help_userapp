@@ -34,7 +34,7 @@ class WebController extends Controller
         $trx_ref = Donations::generateUniqueTxRef();
         $amount = $request->input('amount');
         $email = $request->input('email');
-        $phone = $request->input('phone');
+        $phone = $request->input('phone') ?? "";
         $name = $request->input('name');
 
 

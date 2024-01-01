@@ -271,12 +271,25 @@
                 </div>
                 <div class="modal-body">
                     <form id="donationAmountForm">
+                        @csrf
                         <div class="form-group">
                             <label for="donationAmount">Amount</label>
-                            <input type="number" class="form-control" id="donationAmount" name="donationAmount"
+                            <input type="number" class="form-control" id="donationAmount" name="amount"
                                 required>
+
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ auth()->fullname ?? '' }}" required>
+
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="{{ auth()->email ?? '' }}"
+                                name="email" required>
+
+                            <label for="phone">phone</label>
+                            <input type="text" class="form-control" id="phone" value="{{ auth()->phone ?? '' }}"
+                                name="phone">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Continue with donation</button>
                     </form>
                 </div>
             </div>
