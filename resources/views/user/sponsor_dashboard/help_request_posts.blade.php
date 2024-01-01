@@ -33,8 +33,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="{{ $post->post_video }}"
-                                        allowfullscreen="allowfullscreen" frameborder="0" autoplay="0" controls></iframe>
+                                    <video class="embed-responsive-item" src="{{ $post->post_video }}"
+                                        allowfullscreen="allowfullscreen" frameborder="0"  controls></video>
                                 </div>
 
 
