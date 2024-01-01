@@ -286,7 +286,7 @@
                                 name="email" required>
 
                             <label for="phone">phone</label>
-                            <input type="text" class="form-control" id="phone" value="{{  Auth::user()->fullname ?? '' }}"
+                            <input type="text" class="form-control" id="phone" value="{{  Auth::user()->phone ?? '' }}"
                                 name="phone">
                         </div>
                         <button type="submit" class="btn btn-primary">Continue with donation</button>
