@@ -308,8 +308,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Bank Name: XYZ Bank</p>
-                    <p>Account Number: 1234567890</p>
+                    <p>Account Holder Name: SureHelp</p>
+                    <p>Account Number: 1025922582</p>
+                    <p>Bank Name: UNITED BANK FOR AFRICA PLC</p>
+
                     <!-- Additional bank details here -->
                 </div>
             </div>
