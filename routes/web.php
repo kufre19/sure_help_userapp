@@ -109,6 +109,8 @@ Route::group(["middleware" => "auth:userSponsor","prefix"=>"sponsor/dashboard"],
 
 
     Route::get("/help-requests", [SponsorDashboardController::class,"helpRequests"]);
+    Route::post("/help-requests/provide-help", [SponsorDashboardController::class,"storeHelpOffer"])->name("provide-help");
+
 
 
 

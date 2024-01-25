@@ -34,7 +34,7 @@
                             <div class="card-body">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video class="embed-responsive-item" src="{{ $post->post_video }}"
-                                        allowfullscreen="allowfullscreen" frameborder="0"  controls></video>
+                                        allowfullscreen="allowfullscreen" frameborder="0" controls></video>
                                 </div>
 
 
@@ -42,7 +42,7 @@
                             </div>
                             <div class="card-footer">
                                 <a href="#" class="btn btn-success fetch-user" data-toggle="modal"
-                                    data-target="#userDetailsModal" data-user-id="{{ $post->uuid }}">Provide Help</a>
+                                    data-target="#userDetailsModal" data-post-id="{{ $post->id }}" data-user-id="{{ $post->uuid }}">Provide Help</a>
 
                                 {{-- <a href="#" class="btn btn-success provide-help-button" data-toggle="modal" data-target="#provideHelpModal" data-post-id="{{ $post->id }}">Provide Help</a> --}}
                             </div>
@@ -100,8 +100,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="provideHelpForm">
+                        <form id="provideHelpForm" method="POST" enctype="multipart/form-data">
                             <input type="hidden" id="post_id" name="post_id">
+                            @csrf
                             <div class="form-group">
                                 <label for="helpTitle">Title of Help</label>
                                 <input type="text" class="form-control" id="helpTitle" name="helpTitle" required>
@@ -147,7 +148,7 @@
         $('#closeModal2').click(function() {
             $('#exampleModal2').modal('hide');
         });
-        $('#exampleModal').on('show.bs.modal', function(event) {
+        $('#userDetailsModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var type = button.data('type') // Extract info from data-* attributes
             var post_id = button.data('post-id') // Extract info from data-* attributes
@@ -155,6 +156,9 @@
             var modal = $(this)
             modal.find('#button-type').val(type)
             modal.find('#post_id').val(post_id)
+             // Set post_id as a data attribute on the 'Provide Help' button
+            var provideHelpButton = $(this).find('.provide-help-button');
+            provideHelpButton.data('post-id', post_id);
 
         })
 
@@ -186,7 +190,13 @@
             // Open Provide Help Modal from User Details Modal
             $('.provide-help-button').click(function() {
                 // Close the User Details Modal
+
+                var post_id = $(this).data('post-id'); // Get the post_id from the button's data attribute
+                $('#provideHelpModal').find('#post_id').val(post_id); // Set post_id in provideHelpModal
+
                 $('#userDetailsModal').modal('hide');
+
+
 
                 // Open the Provide Help Modal after a short delay
                 setTimeout(function() {
@@ -212,17 +222,17 @@
                     case 'upload_pdf':
                         dynamicField.append(
                             '<input type="file" class="form-control" name="uploadPdf" accept="application/pdf">'
-                            );
+                        );
                         break;
                     case 'record_video':
                         dynamicField.append(
                             '<input type="file"  id="startRecordingVideo" capture="user" class="form-control" name="recordedVideo" accept="video/*">'
-                            );
+                        );
                         break;
                     case 'record_audio':
                         dynamicField.append(
                             '<input type="file"  id="startRecordingAudio" class="form-control" name="recordedAudio" accept="audio/*">'
-                            );
+                        );
                         break;
                     case 'write_note':
                         dynamicField.append('<textarea class="form-control" name="note"></textarea>');
@@ -230,7 +240,7 @@
                     case 'send_money':
                         dynamicField.append(
                             '<button id="method1" class="btn btn-primary">Method 1</button><button id="method2" class="btn btn-secondary">Method 2</button>'
-                            );
+                        );
                         setupMoneyMethodButtons();
                         break;
                 }
@@ -240,12 +250,12 @@
                 $('#method1').click(function() {
                     $('#dynamicHelpField').html(
                         '<input type="number" class="form-control" name="donationAmount" placeholder="Enter amount">'
-                        );
+                    );
                 });
                 $('#method2').click(function() {
                     $('#dynamicHelpField').html(
                         '<p>Bank Name: XYZ Bank<br>Account Number: 123456789</p><input type="file" class="form-control" name="paymentReceipt" accept="image/*">'
-                        );
+                    );
                 });
             }
 
@@ -277,6 +287,85 @@
                     .catch(function(err) {
                         console.error('Error accessing video:', err);
                     });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Listen for form submission
+            $('#provideHelpForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                var formData = new FormData(this);
+
+                // Handle file upload in the form
+                if ($('#helpType').val() === 'upload_pdf' && $('#uploadPdf')[0].files.length > 0) {
+                    formData.append('uploadPdf', $('#uploadPdf')[0].files[0]);
+                } else if ($('#helpType').val() === 'record_video' && $('#startRecordingVideo')[0].files
+                    .length > 0) {
+                    formData.append('recordedVideo', $('#startRecordingVideo')[0].files[0]);
+                } else if ($('#helpType').val() === 'record_audio' && $('#startRecordingAudio')[0].files
+                    .length > 0) {
+                    formData.append('recordedAudio', $('#startRecordingAudio')[0].files[0]);
+                }
+
+                $.ajax({
+                    url: "{{ route('provide-help') }}", // Adjust the URL to your route
+                    type: 'POST',
+                    data: formData,
+                    contentType: false, // Necessity for FormData
+                    processData: false, // Necessity for FormData
+                    success: function(response) {
+                        
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.msg,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (response.helpPaymentLink && response.helpPaymentLink !=="") {
+                                setTimeout(function() {
+                                    window.location.href = response.helpPaymentLink;
+                                }, 1000);
+                            }else{
+                                $('#provideHelpModal').modal('hide');
+
+                            }
+
+
+                        });
+                    },
+                    error: function(response) {
+                        if (response.status === 422) {
+                            // Parsing the JSON response
+                            var errors = response.responseJSON.errors;
+                            var errorMessage = 'Please correct the following errors:<br>';
+
+                            // Constructing the error message
+                            $.each(errors, function(key, value) {
+                                errorMessage += '<br>• ' + value[
+                                0]; // Getting the first error message for each field
+                            });
+
+                            // Display SweetAlert with all validation errors
+                            Swal.fire({
+                                title: 'Validation Error!',
+                                html: errorMessage,
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        } else {
+                            // For other types of errors, you can display a general error message
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'An unexpected error occurred. Please try again later.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>

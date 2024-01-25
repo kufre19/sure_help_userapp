@@ -52,4 +52,14 @@ class UsersMainApp extends Authenticatable
         return $this->hasMany(UsersMainPost::class,"uuid");
     }
 
+    /**
+     * Relationship with HelpOffered for help received.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function helpReceived(): HasMany
+    {
+        return $this->hasMany(HelpOffered::class, 'help_to', 'uuid');
+    }
+
 }

@@ -13,6 +13,10 @@ use App\Models\UsersMainApp;
 use App\Models\UserSponsorInbox;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Models\HelpOffered;
+use App\Models\HelpPayment;
+use App\Models\UsersMainPost;
+use Illuminate\Support\Str;
 
 class SponsorDashboardController extends Controller
 {
@@ -173,6 +177,155 @@ class SponsorDashboardController extends Controller
         $posts = $this->getAllApprovedPost();
         return view("user.sponsor_dashboard.help_request_posts",compact("posts"));
     }
+
+
+    public function storeHelpOffer(Request $request)
+    {
+        // Validate the request data
+        // Note: Adjust validation rules based on your requirements
+        $validatedData = $request->validate([
+            'post_id' => 'required|exists:users_main_posts,id',
+            'helpTitle' => 'required|string|max:255',
+            'helpDescription' => 'required|string',
+            'helpType' => 'required|string',
+            'uploadPdf' => 'required_if:helpType,upload_pdf|file|mimes:pdf',
+            'recordedVideo' => 'required_if:helpType,record_video|file|mimes:mp4,mov,ogg,qt|max:20000',
+            'recordedAudio' => 'required_if:helpType,record_audio|file|mimes:mp3,wav',
+            'note' => 'required_if:helpType,write_note|string',
+            'donationAmount' => 'required_if:helpType,send_money|numeric',
+        ]);
+
+        $userHelpPost = UsersMainPost::find($validatedData['post_id']);
+
+
+        // Create a new HelpOffered record
+        $helpOffered = HelpOffered::create([
+            'uuid'=>  Str::random(6),
+            'post_id' => $validatedData['post_id'],
+            'help_title' => $validatedData['helpTitle'],
+            'help_description' => $validatedData['helpDescription'],
+            'help_category' => $userHelpPost->post_category,
+            'help_item' => $validatedData['helpType'],
+            'help_from'=> Auth::user()->uuid,
+            'help_to'=> $userHelpPost->uuid
+
+
+            // Map other fields from the form to the database columns
+        ]);
+        $helpPaymentLink = "";
+
+        // Handle file upload and other specifics based on helpType
+        switch ($validatedData['helpType']) {
+            case 'upload_pdf':
+                if ($request->hasFile('uploadPdf')) {
+                    $path = $request->file('uploadPdf')->store('public/help_docs');
+                    $helpOffered->help_item_url = Storage::url($path);
+                }
+                break;
+
+            case 'record_video':
+                if ($request->hasFile('recordedVideo')) {
+                    $path = $request->file('recordedVideo')->store('public/help_videos');
+                    $helpOffered->help_item_url = Storage::url($path);
+                }
+                break;
+
+            case 'record_audio':
+                if ($request->hasFile('recordedAudio')) {
+                    $path = $request->file('recordedAudio')->store('public/help_audios');
+                    $helpOffered->help_item_url = Storage::url($path);
+                }
+                break;
+
+            case 'write_note':
+                $helpOffered->message = $validatedData['note'];
+                $helpOffered->help_item_url = "none";
+
+                break;
+
+            case 'send_money':
+                $amount = $validatedData['donationAmount'];
+                $help_offer_id = $helpOffered->id;
+                $helpOffered->help_item_url = "none";
+                $helpPaymentLink = $this->CreatePaymentLink($amount,$help_offer_id);
+                break;
+        }
+
+        $helpOffered->save();
+
+      
+        return response()
+        ->json(['msg'=>'Help offer has been sent.','helpPaymentLink'=>$helpPaymentLink]);
+    }
+
+
+
+    public function CreatePaymentLink($amount,$help_offer_id)
+    {
+        $url = "https://api.flutterwave.com/v3/payments";
+        $secretKey = env('FLW_SECRETE');
+
+        $email = Auth::user()->email;
+        $phone =Auth::user()->phone ?? "";
+        $name = Auth::user()->fullname;
+        $trxRef = HelpPayment::generateUniqueTxRef(); 
+
+
+
+
+
+        $data = [
+            'tx_ref' => $trxRef,
+            'amount' => $amount,
+            'currency' => 'NGN',
+            'redirect_url' => 'https://surehelp.org/sponsor/dashboard/help-requests',
+            'meta'=>null,
+            'customer' => [
+                'email' => $email,
+                'phonenumber' => $phone,
+                'name' => $name,
+            ]
+           
+        ];
+
+        $headers = [
+            'Authorization: Bearer ' . $secretKey,
+            'Content-Type: application/json',
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+
+        curl_close($ch);
+
+        if ($error) {
+            info($error);
+            return response()->json(["status"=>'error']);
+
+        } else {
+
+             // Create a new HelpPayment record
+             $helpPayment = HelpPayment::create([
+                'help_offered_id' => $help_offer_id,
+                'trx_ref' => $trxRef,
+                'amount' => $amount,
+                'status' => 'pending', // Default status
+                ]);
+    
+           
+            $jsonResponse = json_decode($response, true);
+            return $jsonResponse['data']['link'];
+        }
+    }
+
     
     
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -44,4 +45,14 @@ class UsersSponsorApp extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * Relationship with HelpOffered for help provided.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function helpProvided(): HasMany
+    {
+        return $this->hasMany(HelpOffered::class, 'help_from', 'uuid');
+    }
 }
