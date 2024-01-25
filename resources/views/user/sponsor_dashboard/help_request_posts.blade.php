@@ -325,9 +325,7 @@
                             confirmButtonText: 'OK'
                         }).then((result) => {
                             if (response.helpPaymentLink && response.helpPaymentLink !=="") {
-                                setTimeout(function() {
-                                    window.location.href = response.helpPaymentLink;
-                                }, 1000);
+                                window.location.href = response.helpPaymentLink;
                             }else{
                                 $('#provideHelpModal').modal('hide');
 
